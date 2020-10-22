@@ -12,8 +12,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableViewRecipes: UITableView!
     @IBOutlet weak var tfIngrediente: UITextField!
+    @IBOutlet weak var tfCantidad: UITextField!
     @IBOutlet weak var tableViewIngrediente: UITableView!
+    @IBOutlet weak var stCantidad: UIStepper!
     @IBOutlet weak var addIngredient: UIButton!
+    
     
     
     var listaIngredientes : [Ingrediente] = []
@@ -25,20 +28,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)         // Do any additional setup after loading the view.
         listaIngredientes = []
+        
+        // Ingredientes
+        tfCantidad.text = "0"
+        stCantidad.value = 0
 
-        }
+    }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
+    // Mark: - Agregar ingredientes
+    
     @IBAction func agregarIngrediente(_ sender: UIButton) {
         if (sender == addIngredient) {
-            if let nom = tfIngrediente.text {
-                let ingr = Ingrediente(nombre: nom)
+            if(tfIngrediente.text != "" && Int(tfCantidad.text!) != nil && Int(tfCantidad.text!)! > 0) {
+                let ingr = Ingrediente(nombre: tfIngrediente.text!, cantidad: Int(tfCantidad.text!)!)
                 listaIngredientes.append(ingr)
                 tableViewIngrediente.reloadData()
+                
+                // Limpiar textfields
                 tfIngrediente.text = ""
+                tfCantidad.text = "0"
             }
+        }
+    }
+    
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        
+        if(Int(tfCantidad.text!) != nil) {
+            tfCantidad.text = String(Int(stCantidad.value))
+        }
+    }
+    
+    @IBAction func cambioManualCantidad(_ sender: Any) {
+        if(Int(tfCantidad.text!) != nil) {
+            stCantidad.value = Double(tfCantidad.text!)!
         }
     }
     
@@ -57,6 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let celda = tableView.dequeueReusableCell(withIdentifier: "celdaIngrediente")!
         
         celda.textLabel?.text = listaIngredientes[indexPath.row].nombre
+        celda.detailTextLabel?.text = String(listaIngredientes[indexPath.row].cantidad)
         
         return celda
     }

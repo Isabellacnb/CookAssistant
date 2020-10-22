@@ -26,19 +26,16 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         celda.textLabel?.text = ingrediente[indexPath.row].nombre
         
         return celda
-        
     }
     
-    
-    
     @IBAction func addIngredient(_ sender: Any) {
-        
-        if let nom = tfIngrediente.text {
-            let ingr = Ingrediente(nombre: nom)
-            ingrediente.append(ingr)
-            tableViewIngrediente.reloadData()
-            tfIngrediente.text = ""
-        }
+        // TODO: Agregar cantidad a ingredientes
+//        if let nom = tfIngrediente.text {
+//            let ingr = Ingrediente(nombre: nom)
+//            ingrediente.append(ingr)
+//            tableViewIngrediente.reloadData()
+//            tfIngrediente.text = ""
+//        }
     }
     
     //Se activa cuando le dan favorite, para quitar el favorite solamente le vuelven a picar
