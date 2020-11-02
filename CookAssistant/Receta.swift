@@ -18,7 +18,7 @@ class Receta: NSObject {
     init (nombre : String, pasos : String, esFav : Bool, imagen : UIImage, ingredientes : [Ingrediente]){
         self.nombre = nombre
         self.pasos = pasos
-        self.esFav = false
+        self.esFav = esFav
         self.imagen = imagen
         self.ingredientes = ingredientes
     }

@@ -16,27 +16,51 @@ protocol protocolAgregaReceta {
 class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var tableViewIngrediente: UITableView!
     
+    // MARK: - Métodos de Table View Data Source INGREDIENTES
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(ingrediente.count)
-        return ingrediente.count
+        if (tableView == tableViewIngrediente) {
+            return  listaIngredientes.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celda = tableView.dequeueReusableCell(withIdentifier: "celda")!
-        celda.textLabel?.text = ingrediente[indexPath.row].nombre
+        celda.textLabel?.text = listaIngredientes[indexPath.row].nombre
+        celda.detailTextLabel?.text = String(listaIngredientes[indexPath.row].cantidad)
         
         return celda
     }
     
     @IBAction func addIngredient(_ sender: Any) {
-        // TODO: Agregar cantidad a ingredientes
-//        if let nom = tfIngrediente.text {
-//            let ingr = Ingrediente(nombre: nom)
-//            ingrediente.append(ingr)
-//            tableViewIngrediente.reloadData()
-//            tfIngrediente.text = ""
-//        }
+        if(tfIngrediente.text != "" && Int(tfCantidad.text!) != nil && Int(tfCantidad.text!)! > 0) {
+            let ingr = Ingrediente(nombre: tfIngrediente.text!, cantidad: Int(tfCantidad.text!)!)
+            listaIngredientes.append(ingr)
+            tableViewIngrediente.reloadData()
+            
+            // Limpiar textfields
+            tfIngrediente.text = ""
+            tfCantidad.text = "0"
+        }
     }
+    
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        if(Int(tfCantidad.text!) != nil) {
+            tfCantidad.text = String(Int(stCantidad.value))
+        }
+        
+    }
+    
+    @IBAction func cambioManualCantidad(_ sender: Any) {
+        if(Int(tfCantidad.text!) != nil) {
+            stCantidad.value = Double(tfCantidad.text!)!
+        }
+        
+    }
+    
+    
     
     //Se activa cuando le dan favorite, para quitar el favorite solamente le vuelven a picar
     @IBOutlet weak var favoriteStar: UIButton!
@@ -69,17 +93,24 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     @IBOutlet weak var tfIngrediente : UITextField!
+    @IBOutlet weak var stCantidad: UIStepper!
+    @IBOutlet weak var tfCantidad: UITextField!
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfInstruciones: UITextField!
+    
     var nombre : String!
-    var ingrediente : [Ingrediente] = []
+    var listaIngredientes : [Ingrediente] = []
     var isFav : Bool = false
     var pasos : String!
     var imagen = UIImage(named: "defaultImg")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)         // Do any additional setup after loading the view.
+        tfCantidad.text = "0"
+        stCantidad.value = 0
+        
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -88,10 +119,8 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     var delegado : protocolAgregaReceta!
     
     @IBAction func guardaReceta(_ sender: UIButton) {
-        print(isFav)
-        let receta = Receta(nombre: tfNombre.text!, pasos: tfInstruciones.text!, esFav: isFav, imagen: imagen!, ingredientes: ingrediente)
+        let receta = Receta(nombre: tfNombre.text!, pasos: tfInstruciones.text!, esFav: isFav, imagen: imagen!, ingredientes: listaIngredientes)
         if isFav {
-            print(receta)
             delegado.agregaReceta(rec : receta)
             delegado.agregaFavorita(rec: receta)
             navigationController?.popViewController(animated: true)

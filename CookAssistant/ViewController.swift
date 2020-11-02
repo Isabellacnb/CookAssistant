@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)         // Do any additional setup after loading the view.
         listaIngredientes = []
-        
+        self.navigationController!.navigationBar.isHidden = true
         // Ingredientes
         tfCantidad.text = "0"
         stCantidad.value = 0
@@ -98,8 +98,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if segue.identifier == "recetasPrevias" {
             //let vistaRP = segue.destination as! TableViewControllerRecetasPrevias
             
+            
         } else if segue.identifier == "recetasFavoritas" {
-            //let vistaFavoritas = segue.identifier as! TableViewControllerFavoritas
+            print("PANPON")
+            let vistaFavoritas = segue.destination as! TableViewControllerFavoritas
+            vistaFavoritas.listaRecetasFavoritas = listaRecetasFavoritas
         }
         
     }
@@ -112,6 +115,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func agregaFavorita(rec: Receta) {
         listaRecetasFavoritas.append(rec)
+        print(listaRecetasFavoritas[0].nombre)
+        print(listaRecetasFavoritas[0].esFav)
+        print(listaRecetasFavoritas[0].pasos)
+        print(listaRecetasFavoritas[0].ingredientes[0].nombre)
+        print(listaRecetasFavoritas.count)
     }
     
 }
