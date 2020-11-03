@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -345,14 +345,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smE-jn-nLx">
                                 <rect key="frame" x="16" y="22" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="gp4-9c-Lvc" eventType="touchUpInside" id="13s-B8-G0g"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BHB-ls-7K0">
-                                <rect key="frame" x="16" y="413" width="343" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjm-QX-CV0">
                                 <rect key="frame" x="160" y="617" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -400,6 +396,20 @@
                                     <action selector="addImage:" destination="gp4-9c-Lvc" eventType="touchUpInside" id="Gho-R5-0Xp"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YRT-rl-tah">
+                                <rect key="frame" x="16" y="413" width="343" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xif-ef-6nG">
+                                <rect key="frame" x="245" y="572" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.079208586090000005" green="0.66622814119999996" blue="0.194516253" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="checkmark.circle.fill" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hqt-Pj-pXx"/>
                         <color key="backgroundColor" red="0.96932045509999998" green="0.86380968229999999" blue="0.77425977599999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -407,12 +417,13 @@
                     <navigationItem key="navigationItem" id="gdj-n7-OtV"/>
                     <connections>
                         <outlet property="favoriteStar" destination="bWw-Ve-Xw1" id="IdT-kE-JFs"/>
+                        <outlet property="imageLoaded" destination="Xif-ef-6nG" id="Ik6-Ey-A5T"/>
                         <outlet property="stCantidad" destination="wTa-i7-PCT" id="ONL-Ix-hpz"/>
                         <outlet property="tableViewIngrediente" destination="Z6C-6W-0Yo" id="hIZ-Db-5X2"/>
                         <outlet property="tfCantidad" destination="7Lh-yF-eHz" id="XW5-Sv-wy7"/>
                         <outlet property="tfIngrediente" destination="98U-IO-E6q" id="4tJ-Jk-Nv6"/>
-                        <outlet property="tfInstruciones" destination="BHB-ls-7K0" id="40I-cY-Ycj"/>
                         <outlet property="tfNombre" destination="xNe-N5-GlP" id="MDB-Am-nXe"/>
+                        <outlet property="tvInstruciones" destination="YRT-rl-tah" id="74R-Dm-qfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fto-KF-Nkj" sceneMemberID="firstResponder"/>
@@ -439,7 +450,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

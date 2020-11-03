@@ -86,17 +86,21 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         
         let foto = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imagen = foto
+        imageLoaded.isHidden = false
         dismiss(animated: true, completion: nil)
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
         
     }
+    
     @IBOutlet weak var tfIngrediente : UITextField!
     @IBOutlet weak var stCantidad: UIStepper!
     @IBOutlet weak var tfCantidad: UITextField!
     @IBOutlet weak var tfNombre: UITextField!
-    @IBOutlet weak var tfInstruciones: UITextField!
+    @IBOutlet weak var tvInstruciones: UITextView!
+    @IBOutlet weak var imageLoaded: UIButton!
     
     var nombre : String!
     var listaIngredientes : [Ingrediente] = []
@@ -119,7 +123,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     var delegado : protocolAgregaReceta!
     
     @IBAction func guardaReceta(_ sender: UIButton) {
-        let receta = Receta(nombre: tfNombre.text!, pasos: tfInstruciones.text!, esFav: isFav, imagen: imagen!, ingredientes: listaIngredientes)
+        let receta = Receta(nombre: tfNombre.text!, pasos: tvInstruciones.text!, esFav: isFav, imagen: imagen!, ingredientes: listaIngredientes)
         if isFav {
             delegado.agregaReceta(rec : receta)
             delegado.agregaFavorita(rec: receta)
@@ -131,7 +135,12 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
-
+    @IBAction func closeButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
