@@ -43,6 +43,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             // Limpiar textfields
             tfIngrediente.text = ""
             tfCantidad.text = "0"
+            stCantidad.value = 0
         }
     }
     

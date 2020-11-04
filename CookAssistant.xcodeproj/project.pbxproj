@@ -14,6 +14,8 @@
 		5C0DC393253A3E8F0038FF1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0DC392253A3E8F0038FF1B /* Assets.xcassets */; };
 		5C0DC396253A3E8F0038FF1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0DC394253A3E8F0038FF1B /* LaunchScreen.storyboard */; };
 		5C0DC39E253AA7CE0038FF1B /* Ingrediente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0DC39D253AA7CE0038FF1B /* Ingrediente.swift */; };
+		5C8A4CFD2552651A00937BB7 /* TableViewControllerRecetas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A4CFC2552651A00937BB7 /* TableViewControllerRecetas.swift */; };
+		5C8A4D002552788000937BB7 /* ViewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A4CFF2552788000937BB7 /* ViewRecipeViewController.swift */; };
 		5C9EFB19253DC4AE004BF92D /* TableViewControllerRecetasPrevias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EFB18253DC4AE004BF92D /* TableViewControllerRecetasPrevias.swift */; };
 		5C9EFB1C253DC671004BF92D /* TableViewControllerFavoritas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EFB1B253DC671004BF92D /* TableViewControllerFavoritas.swift */; };
 		5F73886A253B8D7C003687D5 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F738869253B8D7C003687D5 /* AddRecipeViewController.swift */; };
@@ -30,6 +32,8 @@
 		5C0DC395253A3E8F0038FF1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C0DC397253A3E8F0038FF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C0DC39D253AA7CE0038FF1B /* Ingrediente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingrediente.swift; sourceTree = "<group>"; };
+		5C8A4CFC2552651A00937BB7 /* TableViewControllerRecetas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerRecetas.swift; sourceTree = "<group>"; };
+		5C8A4CFF2552788000937BB7 /* ViewRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRecipeViewController.swift; sourceTree = "<group>"; };
 		5C9EFB18253DC4AE004BF92D /* TableViewControllerRecetasPrevias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerRecetasPrevias.swift; sourceTree = "<group>"; };
 		5C9EFB1B253DC671004BF92D /* TableViewControllerFavoritas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerFavoritas.swift; sourceTree = "<group>"; };
 		5F738869253B8D7C003687D5 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				5F738869253B8D7C003687D5 /* AddRecipeViewController.swift */,
 				5C0DC38D253A3E860038FF1B /* ViewController.swift */,
 				5C0DC38F253A3E860038FF1B /* Main.storyboard */,
+				5C8A4CFF2552788000937BB7 /* ViewRecipeViewController.swift */,
+				5C8A4CFC2552651A00937BB7 /* TableViewControllerRecetas.swift */,
 				5C9EFB1B253DC671004BF92D /* TableViewControllerFavoritas.swift */,
 				5C9EFB18253DC4AE004BF92D /* TableViewControllerRecetasPrevias.swift */,
 				5C0DC39D253AA7CE0038FF1B /* Ingrediente.swift */,
@@ -159,8 +165,10 @@
 				5F73886A253B8D7C003687D5 /* AddRecipeViewController.swift in Sources */,
 				5F73886E253B9491003687D5 /* Receta.swift in Sources */,
 				5C0DC39E253AA7CE0038FF1B /* Ingrediente.swift in Sources */,
+				5C8A4CFD2552651A00937BB7 /* TableViewControllerRecetas.swift in Sources */,
 				5C0DC38C253A3E860038FF1B /* SceneDelegate.swift in Sources */,
 				5C9EFB1C253DC671004BF92D /* TableViewControllerFavoritas.swift in Sources */,
+				5C8A4D002552788000937BB7 /* ViewRecipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

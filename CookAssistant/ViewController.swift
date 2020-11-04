@@ -7,10 +7,10 @@
 //
 
 import UIKit
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, protocolAgregaReceta {
+class ViewController: UIViewController,UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate  {
     
 
-    @IBOutlet weak var tableViewRecipes: UITableView!
+    //@IBOutlet weak var tableViewRecipes: UITableView!
     @IBOutlet weak var tfIngrediente: UITextField!
     @IBOutlet weak var tfCantidad: UITextField!
     @IBOutlet weak var tableViewIngrediente: UITableView!
@@ -20,8 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     var listaIngredientes : [Ingrediente] = []
-    var listaRecetas : [Receta] = []
-    var listaRecetasFavoritas : [Receta] = []
+    //var listaRecetas : [Receta] = []
+    //var listaRecetasFavoritas : [Receta] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 // Limpiar textfields
                 tfIngrediente.text = ""
                 tfCantidad.text = "0"
+                stCantidad.value = 0
+                
             }
         }
     }
@@ -71,6 +73,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - Métodos de Table View Data Source INGREDIENTES
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if (tableView == tableViewIngrediente) {
             return  listaIngredientes.count
         } else {
@@ -88,6 +91,56 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return celda
     }
     
+    // Override to support conditional editing of the table view.
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if (tableView == tableViewIngrediente) {
+            return true
+        } else {
+            return false
+        }
+        // Return false if you do not want the specified item to be editable.
+    }
+    
+
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (tableView == tableViewIngrediente) {
+            if editingStyle == .delete {
+                // Delete the row from the data source
+                listaIngredientes.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } else if editingStyle == .insert {
+                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            }
+        }
+        
+    }
+    
+
+    
+    // Override to support rearranging the table view.
+    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        if (tableView == tableViewIngrediente) {
+            let tmp = listaIngredientes[fromIndexPath.row]
+            listaIngredientes[fromIndexPath.row] = listaIngredientes[to.row]
+            listaIngredientes[to.row] = tmp
+        }
+        
+
+    }
+    
+
+    // Override to support conditional rearranging of the table view.
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        if (tableView == tableViewIngrediente) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "addRecipe" {
@@ -100,27 +153,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
         } else if segue.identifier == "recetasFavoritas" {
-            print("PANPON")
+            //print("PANPON")
             let vistaFavoritas = segue.destination as! TableViewControllerFavoritas
             vistaFavoritas.listaRecetasFavoritas = listaRecetasFavoritas
         }
         
     }
+ */
 
-
-    func agregaReceta(rec: Receta) {
-        listaRecetas.append(rec)
-        //Reload table
-    }
-    
-    func agregaFavorita(rec: Receta) {
-        listaRecetasFavoritas.append(rec)
-        print(listaRecetasFavoritas[0].nombre)
-        print(listaRecetasFavoritas[0].esFav)
-        print(listaRecetasFavoritas[0].pasos)
-        print(listaRecetasFavoritas[0].ingredientes[0].nombre)
-        print(listaRecetasFavoritas.count)
-    }
     
 }
 

@@ -1,32 +1,26 @@
 //
-//  TableViewControllerFavoritas.swift
+//  TableViewControllerRecetas.swift
 //  CookAssistant
 //
-//  Created by Isabella Canales Backhoff on 19/10/20.
+//  Created by Isabella Canales Backhoff on 03/11/20.
 //  Copyright © 2020 Isabella Canales Backhoff. All rights reserved.
 //
 
 import UIKit
 
-class customTableViewCell: UITableViewCell{
+class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     
-    @IBOutlet weak var imgFotoReceta: UIImageView!
-    @IBOutlet weak var lbNombreReceta: UILabel!
-}
-
-
-class TableViewControllerFavoritas: UITableViewController {
-
+    var listaRecetas = [Receta]()
     var listaRecetasFavoritas : [Receta] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Recetas Favoritas"
+        title = "Recetas"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -38,63 +32,90 @@ class TableViewControllerFavoritas: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listaRecetasFavoritas.count
+        return listaRecetas.count
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! customTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celdaRecetas", for: indexPath)
 
-        cell.lbNombreReceta.text = listaRecetasFavoritas[indexPath.row].nombre
-        cell.imgFotoReceta.image = listaRecetasFavoritas[indexPath.row].imagen
+        cell.textLabel?.text = listaRecetas[indexPath.row].nombre
+        if (listaRecetas[indexPath.row].esFav == true) {
+            cell.imageView?.image = UIImage(systemName: "star.fill")
+        }
 
         return cell
     }
     
 
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
+    
 
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            listaRecetasFavoritas.remove(at: indexPath.row)
+            // Delete the row from the data source
+            listaRecetas.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+    
 
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let temp = listaRecetasFavoritas[fromIndexPath.row]
-        listaRecetasFavoritas[fromIndexPath.row] = listaRecetasFavoritas[to.row]
-        listaRecetasFavoritas[to.row] = temp
+        let tmp = listaRecetas[fromIndexPath.row]
+        listaRecetas[fromIndexPath.row] = listaRecetas[to.row]
+        listaRecetas[to.row] = tmp
+
     }
     
 
-    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
 
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "viewRecipe" {
+        if segue.identifier == "addRecipe" {
+
+            //print(listaRecetas)
+            let vistaAgregar = segue.destination as! AddRecipeViewController
+            vistaAgregar.delegado = self
+        } else if segue.identifier == "viewRecipe" {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
-            vistaVer.unaReceta = listaRecetasFavoritas[indice.row]
+            vistaVer.unaReceta = listaRecetas[indice.row]
+
         }
     }
+    
+    // MARK: - Metodos del protocolo agrega categoria
+    func agregaReceta(rec: Receta) {
+        listaRecetas.append(rec)
+        tableView.reloadData()
+    }
+    
+    func agregaFavorita(rec: Receta) {
+        listaRecetasFavoritas.append(rec)
+        //print(listaRecetasFavoritas[0].nombre)
+        //print(listaRecetasFavoritas[0].esFav)
+        //print(listaRecetasFavoritas[0].pasos)
+        //print(listaRecetasFavoritas[0].ingredientes[0].nombre)
+        //print(listaRecetasFavoritas.count)
+    }
+    
 
 }
