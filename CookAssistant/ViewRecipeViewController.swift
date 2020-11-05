@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol protocolAgregaPrevia{
+    func agregaPrevia(rec : Receta)
+}
+
 class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var lbRecipeName: UILabel!
     @IBOutlet weak var imgRecipe: UIImageView!
     @IBOutlet weak var lbInstructions: UILabel!
     var listaIngredientes = [Ingrediente]()
+    var delegado : protocolAgregaPrevia!
     
     var unaReceta : Receta!
     
@@ -72,6 +77,9 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        delegado.agregaPrevia(rec: unaReceta)
+    }
 
     /*
     // MARK: - Navigation

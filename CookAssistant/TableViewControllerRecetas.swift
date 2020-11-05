@@ -8,10 +8,12 @@
 
 import UIKit
 
-class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
+class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, protocolAgregaPrevia {
     
+    let defaults = UserDefaults.standard
     var listaRecetas = [Receta]()
     var listaRecetasFavoritas : [Receta] = []
+    var listaRecetasPrevias : [Receta] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +99,7 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
         } else if segue.identifier == "viewRecipe" {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
+            vistaVer.delegado = self
             vistaVer.unaReceta = listaRecetas[indice.row]
 
         }
@@ -110,11 +113,13 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     
     func agregaFavorita(rec: Receta) {
         listaRecetasFavoritas.append(rec)
-        //print(listaRecetasFavoritas[0].nombre)
-        //print(listaRecetasFavoritas[0].esFav)
-        //print(listaRecetasFavoritas[0].pasos)
-        //print(listaRecetasFavoritas[0].ingredientes[0].nombre)
-        //print(listaRecetasFavoritas.count)
+    }
+    
+    func agregaPrevia(rec: Receta) {
+        listaRecetasPrevias.append(rec)
+        if listaRecetasPrevias.count > 10 {
+            listaRecetasPrevias.remove(at: 0)
+        }
     }
     
 

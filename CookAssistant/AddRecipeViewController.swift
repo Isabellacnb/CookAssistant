@@ -108,6 +108,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     var isFav : Bool = false
     var pasos : String!
     var imagen = UIImage(named: "defaultImg")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
