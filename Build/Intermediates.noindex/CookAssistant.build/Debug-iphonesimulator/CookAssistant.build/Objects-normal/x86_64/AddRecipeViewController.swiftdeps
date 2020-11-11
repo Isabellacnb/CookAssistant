@@ -408,6 +408,10 @@ depends-member:
 - ["s7CVarArgP", "viewForZooming"]
 - ["s7CVarArgP", "viewForZoomingInScrollView"]
 - !private ["s7CVarArgP", "white"]
+- !private ["s9CodingKeyP", ""]
+- !private ["s9CodingKeyP", "init"]
+- !private ["s9CodingKeyP", "intValue"]
+- !private ["s9CodingKeyP", "stringValue"]
 - ["Sl", ""]
 - !private ["Sl", "append"]
 - !private ["Sl", "cantidad"]
@@ -732,6 +736,7 @@ depends-member:
 - !private ["Se", "agregaReceta"]
 - !private ["Se", "append"]
 - !private ["Se", "backgroundColor"]
+- !private ["Se", "cantidad"]
 - !private ["Se", "clear"]
 - !private ["Se", "count"]
 - !private ["Se", "dataSource"]
@@ -740,6 +745,8 @@ depends-member:
 - !private ["Se", "init"]
 - !private ["Se", "isHidden"]
 - !private ["Se", "layer"]
+- !private ["Se", "medida"]
+- !private ["Se", "nombre"]
 - !private ["Se", "reloadData"]
 - !private ["Se", "remove"]
 - !private ["Se", "row"]
@@ -760,6 +767,7 @@ depends-member:
 - !private ["SE", "agregaReceta"]
 - !private ["SE", "append"]
 - !private ["SE", "backgroundColor"]
+- !private ["SE", "cantidad"]
 - !private ["SE", "clear"]
 - !private ["SE", "count"]
 - !private ["SE", "dataSource"]
@@ -768,6 +776,8 @@ depends-member:
 - !private ["SE", "init"]
 - !private ["SE", "isHidden"]
 - !private ["SE", "layer"]
+- !private ["SE", "medida"]
+- !private ["SE", "nombre"]
 - !private ["SE", "reloadData"]
 - !private ["SE", "remove"]
 - !private ["SE", "row"]
@@ -1035,6 +1045,8 @@ depends-member:
 - !private ["SH", "font"]
 - !private ["SH", "frame"]
 - !private ["SH", "guardaReceta"]
+- !private ["SH", "hash"]
+- !private ["SH", "hashValue"]
 - !private ["SH", "idMeasure"]
 - !private ["SH", "identifier"]
 - !private ["SH", "imageLoaded"]
@@ -1113,6 +1125,8 @@ depends-member:
 - !private ["SH", "white"]
 - !private ["10Foundation9IndexPathV", "row"]
 - !private ["So30UIImagePickerControllerInfoKeya", "originalImage"]
+- !private ["13CookAssistant11IngredienteC", "CodingKeys"]
+- !private ["13CookAssistant11IngredienteC", ""]
 - !private ["13CookAssistant11IngredienteC", "cantidad"]
 - !private ["13CookAssistant11IngredienteC", "init"]
 - !private ["13CookAssistant11IngredienteC", "medida"]
@@ -4224,6 +4238,7 @@ depends-nominal:
 - !private "So13CAMediaTimingP"
 - !private "So6CGRectV"
 - "s7CVarArgP"
+- !private "s9CodingKeyP"
 - "Sl"
 - "SL"
 - !private "So17UIViewContentModeV"

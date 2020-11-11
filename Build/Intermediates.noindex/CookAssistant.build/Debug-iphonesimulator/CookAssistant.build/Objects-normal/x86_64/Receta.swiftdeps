@@ -61,6 +61,7 @@ depends-member:
 - !private ["SH", "nombre"]
 - !private ["SH", "pasos"]
 - !private ["SH", "tiempo"]
+- ["So8NSCodingP", ""]
 - ["So8NSObjectC", "Bool"]
 - ["So8NSObjectC", "Ingrediente"]
 - ["So8NSObjectC", "String"]
@@ -73,6 +74,10 @@ depends-member:
 - ["So8NSObjectC", "nombre"]
 - ["So8NSObjectC", "pasos"]
 - ["So8NSObjectC", "tiempo"]
+- ["So8NSObjectP", "Bool"]
+- ["So8NSObjectP", "Ingrediente"]
+- ["So8NSObjectP", "String"]
+- ["So8NSObjectP", "UIImage"]
 - ["So8NSObjectP", ""]
 - ["So8NSObjectP", "esFav"]
 - ["So8NSObjectP", "imagen"]
@@ -94,6 +99,7 @@ depends-member:
 - ["13CookAssistant6RecetaC", "nombre"]
 - ["13CookAssistant6RecetaC", "pasos"]
 - ["13CookAssistant6RecetaC", "tiempo"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "esFav"]
@@ -117,9 +123,11 @@ depends-nominal:
 - "s23CustomStringConvertibleP"
 - "SQ"
 - "SH"
+- "So8NSCodingP"
 - "So8NSObjectC"
 - "So8NSObjectP"
 - "13CookAssistant6RecetaC"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - "10Foundation37_KeyValueCodingAndObservingPublishingP"

@@ -73,6 +73,7 @@ depends-member:
 - ["So8NSObjectC", "nombre"]
 - ["So8NSObjectC", "pasos"]
 - ["So8NSObjectC", "tiempo"]
+- ["So8NSObjectP", "Bool"]
 - ["So8NSObjectP", ""]
 - ["So8NSObjectP", "esFav"]
 - ["So8NSObjectP", "imagen"]

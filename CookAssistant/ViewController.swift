@@ -62,6 +62,20 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
         tableViewMeasures.layer.borderColor = UIColor.black.cgColor
         
         tableViewMeasures.isHidden = true
+        
+        // UIApplication.shared se refiere a la aplicacion
+        let app = UIApplication.shared
+        
+        // Me registro en el centro de notificaciones para que se llame al método guardarEmpleados cuando la aplicación se vaya al background
+        NotificationCenter.default.addObserver(self, selector: #selector(guardarIngredientes), name: UIApplication.didEnterBackgroundNotification, object: app)
+        
+        // Creo un objeto arreglo vacío para inicializar la lista de empleados
+        listaIngredientes = []
+        
+        // Si existe el archivo significa que ya se había corrido antes este programa y hay un archivo ya grabado
+        if FileManager.default.fileExists(atPath: dataFileURL().path) {
+            obtenerIngredientes()
+        }
 
     }
     
@@ -235,7 +249,40 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
             return 45
         }
     }
-
+    
+    // MARK: - data file url ingredientes
+    func dataFileURL() -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent("Ingredientes.plist")
+        print(pathArchivo)
+        return pathArchivo
+    }
+    
+    // MARK: - Métodos para guardar y obtener ingredientes
+    @IBAction func guardarIngredientes() {
+        do {
+            let data = try PropertyListEncoder().encode(listaIngredientes)
+            try data.write(to: dataFileURL())
+        }
+        catch {
+            print("Error al guardar los ingredientes")
+        }
+    }
+    
+    func obtenerIngredientes() {
+        // antes de cargar datos limpio el arreglo listaIngredientes
+        listaIngredientes.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL())
+            listaIngredientes = try PropertyListDecoder().decode([Ingrediente].self, from: data)
+        }
+        catch {
+            print("Error al cargar los datos del archivo de ingredientes")
+        }
+        // despues de cargar los datos al arreglo listaempleados repinta el tableview
+        tableViewIngrediente.reloadData()
+    }
     
 }
 

@@ -113,6 +113,10 @@ depends-member:
 - !private ["s7CVarArgP", "titleView"]
 - !private ["s7CVarArgP", "unaReceta"]
 - !private ["s7CVarArgP", "viewDidLoad"]
+- !private ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- ["s9CodingKeyP", "stringValue"]
 - ["Sl", ""]
 - !private ["Sl", "count"]
 - !private ["Sl", "imagen"]
@@ -221,7 +225,7 @@ depends-member:
 - !private ["Se", "count"]
 - !private ["Se", "image"]
 - !private ["Se", "indexPathForSelectedRow"]
-- !private ["Se", "init"]
+- ["Se", "init"]
 - !private ["Se", "row"]
 - !private ["Se", "subscript"]
 - !private ["Se", "text"]
@@ -229,10 +233,11 @@ depends-member:
 - !private ["SE", "count"]
 - !private ["SE", "image"]
 - !private ["SE", "indexPathForSelectedRow"]
-- !private ["SE", "init"]
+- ["SE", "init"]
 - !private ["SE", "row"]
 - !private ["SE", "subscript"]
 - !private ["SE", "text"]
+- ["SQ", "=="]
 - !private ["SQ", "CGRect"]
 - ["SQ", "Ingrediente"]
 - ["SQ", "Receta"]
@@ -307,6 +312,8 @@ depends-member:
 - !private ["SH", "dequeueReusableCell"]
 - !private ["SH", "destination"]
 - !private ["SH", "frame"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
 - !private ["SH", "identifier"]
 - !private ["SH", "image"]
 - !private ["SH", "imagen"]
@@ -329,6 +336,8 @@ depends-member:
 - !private ["SH", "unaReceta"]
 - !private ["SH", "viewDidLoad"]
 - !private ["10Foundation9IndexPathV", "row"]
+- ["13CookAssistant11IngredienteC", "CodingKeys"]
+- ["13CookAssistant11IngredienteC", ""]
 - ["13CookAssistant11IngredienteC", "init"]
 - ["s25LosslessStringConvertibleP", ""]
 - !private ["SM", ""]
@@ -1309,6 +1318,7 @@ depends-nominal:
 - "So15CALayerDelegateP"
 - !private "So6CGRectV"
 - "s7CVarArgP"
+- "s9CodingKeyP"
 - "Sl"
 - "SL"
 - !private "So17UIViewContentModeV"
@@ -1317,8 +1327,8 @@ depends-nominal:
 - !private "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - !private "10Foundation12DataProtocolP"
-- !private "Se"
-- !private "SE"
+- "Se"
+- "SE"
 - "SQ"
 - "s25ExpressibleByArrayLiteralP"
 - "s43ExpressibleByExtendedGraphemeClusterLiteralP"

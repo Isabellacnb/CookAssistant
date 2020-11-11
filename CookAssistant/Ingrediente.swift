@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Ingrediente: NSObject {
+class Ingrediente: NSObject, Codable {
     var nombre : String
     var cantidad : Int
     var medida : Int

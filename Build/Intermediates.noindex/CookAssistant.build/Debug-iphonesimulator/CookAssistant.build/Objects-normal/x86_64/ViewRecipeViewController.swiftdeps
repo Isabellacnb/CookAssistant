@@ -427,6 +427,7 @@ depends-member:
 - !private ["10Foundation12DataProtocolP", "medida"]
 - !private ["10Foundation12DataProtocolP", "nombre"]
 - !private ["10Foundation12DataProtocolP", "subscript"]
+- !private ["Se", "cantidad"]
 - !private ["Se", "clear"]
 - !private ["Se", "count"]
 - !private ["Se", "dataSource"]
@@ -437,12 +438,14 @@ depends-member:
 - !private ["Se", "imagen"]
 - !private ["Se", "ingredientes"]
 - ["Se", "init"]
+- !private ["Se", "medida"]
 - !private ["Se", "nombre"]
 - !private ["Se", "pasos"]
 - !private ["Se", "row"]
 - !private ["Se", "subscript"]
 - !private ["Se", "text"]
 - !private ["Se", "tiempo"]
+- !private ["SE", "cantidad"]
 - !private ["SE", "clear"]
 - !private ["SE", "count"]
 - !private ["SE", "dataSource"]
@@ -453,6 +456,7 @@ depends-member:
 - !private ["SE", "imagen"]
 - !private ["SE", "ingredientes"]
 - ["SE", "init"]
+- !private ["SE", "medida"]
 - !private ["SE", "nombre"]
 - !private ["SE", "pasos"]
 - !private ["SE", "row"]
@@ -671,6 +675,7 @@ depends-member:
 - ["SH", "viewForZooming"]
 - ["SH", "viewForZoomingInScrollView"]
 - !private ["10Foundation9IndexPathV", "row"]
+- ["13CookAssistant11IngredienteC", ""]
 - !private ["13CookAssistant11IngredienteC", "cantidad"]
 - !private ["13CookAssistant11IngredienteC", "medida"]
 - !private ["13CookAssistant11IngredienteC", "nombre"]
@@ -2798,7 +2803,7 @@ depends-nominal:
 - !private "SF"
 - "SH"
 - !private "10Foundation9IndexPathV"
-- !private "13CookAssistant11IngredienteC"
+- "13CookAssistant11IngredienteC"
 - "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - "SM"

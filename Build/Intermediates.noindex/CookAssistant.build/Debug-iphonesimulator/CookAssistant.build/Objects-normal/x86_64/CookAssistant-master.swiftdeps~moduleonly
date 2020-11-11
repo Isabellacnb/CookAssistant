@@ -1,13 +1,13 @@
 version: "Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)"
 options: "bdd7869b352ebf86cf63b912f2da67a5"
-build_time: [1605080470, 741502000]
+build_time: [1605124997, 195525000]
 inputs:
   "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/TableViewControllerRecetasPrevias.swift": [1605079918, 561527243]
-  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/ViewController.swift": [1605080469, 910026846]
+  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/ViewController.swift": [1605123924, 934326503]
   "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/AppDelegate.swift": [1605061580, 584735739]
-  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/AddRecipeViewController.swift": [1605080469, 942048064]
-  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/Receta.swift": [1605061580, 590141823]
-  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/Ingrediente.swift": [1605071972, 87077722]
+  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/AddRecipeViewController.swift": [1605080578, 112683019]
+  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/Receta.swift": [1605124995, 23329730]
+  "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/Ingrediente.swift": [1605123285, 54448142]
   "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/TableViewControllerRecetas.swift": [1605079918, 537025777]
   "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/SceneDelegate.swift": [1605061580, 590354318]
   "/Users/isabellacanalesb/Desktop/CookAssistant/CookAssistant/CookAssistant/TableViewControllerFavoritas.swift": [1605079918, 586248655]
