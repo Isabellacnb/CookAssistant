@@ -14,6 +14,7 @@ protocol protocolAgregaPrevia{
 
 class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+    @IBOutlet weak var btnBackRecipes: UIBarButtonItem!
     @IBOutlet weak var lbRecipeName: UILabel!
     @IBOutlet weak var imgRecipe: UIImageView!
     @IBOutlet weak var tfvInstructions: UITextView!
@@ -26,11 +27,22 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     var edited = false
     var unaReceta : Receta!
     var canEdit = false
+    var arrayMeasures : NSMutableArray = ["tsp", "tbsp", "oz", "cups", "pints", "quarts", "gal"]
     
     @IBOutlet weak var tableViewIngrediente: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Agregar logo al navigation bar
+        let imageV = UIImageView(image: #imageLiteral(resourceName: "cookAssistantLogo"))
+        imageV.frame = CGRect(x: 0, y: 0, width: 170, height: 42)
+        imageV.contentMode = .scaleAspectFit
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 170, height: 42))
+        titleView.addSubview(imageV)
+        titleView.backgroundColor = .clear
+        self.navigationItem.titleView = titleView
+        
         // Nombrar receta
         lbRecipeName.text = unaReceta.nombre
         
@@ -41,7 +53,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // Guardar instrucciones de receta en label
         tfvInstructions.text = unaReceta.pasos
-        lbTime.text = unaReceta.tiempo
+        lbTime.text = unaReceta.tiempo + " Minutes"
         // Poner imagen a receta
         imgRecipe.image = unaReceta.imagen
         esFav = unaReceta.esFav
@@ -57,7 +69,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         if canEdit == false {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+            self.navigationItem.leftBarButtonItem = nil
+            
         }
+        
+        
         
     }
     
@@ -74,8 +90,11 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celda = tableView.dequeueReusableCell(withIdentifier: "celda")!
         celda.textLabel?.text = listaIngredientes[indexPath.row].nombre
-        celda.detailTextLabel?.text = String(listaIngredientes[indexPath.row].cantidad)
-        
+        celda.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
+        let valorMedida = arrayMeasures[ listaIngredientes[indexPath.row].medida - 1]
+        let strMedida = valorMedida as! String
+        let detalle = String(listaIngredientes[indexPath.row].cantidad) + " " + strMedida
+        celda.detailTextLabel?.text = detalle
         return celda
     }
     
@@ -125,6 +144,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         if canEdit == false {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+            
         }
         edited = true
     }
@@ -150,6 +170,8 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 
     }
+    
+    
     
 
 }

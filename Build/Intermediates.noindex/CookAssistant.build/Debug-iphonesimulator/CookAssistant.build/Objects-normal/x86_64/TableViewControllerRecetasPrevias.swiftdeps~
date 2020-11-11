@@ -18,17 +18,22 @@ provides-dynamic-lookup:
 - "tableView"
 - "viewDidLoad"
 depends-top-level:
+- !private "+"
 - !private "=="
+- "Array"
 - "AssignmentPrecedence"
+- "BooleanLiteralType"
 - "CGFloat"
 - "CastingPrecedence"
-- !private "FloatLiteralType"
+- "FloatLiteralType"
 - "IndexPath"
+- "Ingrediente"
 - "Int"
-- !private "IntegerLiteralType"
+- "IntegerLiteralType"
 - "Receta"
-- !private "StringLiteralType"
+- "StringLiteralType"
 - "TableViewControllerRecetasPrevias"
+- "UIImage"
 - "UIImageView"
 - "UILabel"
 - "UIStoryboardSegue"
@@ -66,6 +71,9 @@ depends-member:
 - ["So15CALayerDelegateP", "lbNombreReceta"]
 - ["So15CALayerDelegateP", "lbTime"]
 - !private ["So15CALayerDelegateP", "text"]
+- ["s7CVarArgP", "Ingrediente"]
+- ["s7CVarArgP", "Receta"]
+- ["s7CVarArgP", "UIImage"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "count"]
 - !private ["s7CVarArgP", "dequeueReusableCell"]
@@ -75,6 +83,7 @@ depends-member:
 - !private ["s7CVarArgP", "imagen"]
 - !private ["s7CVarArgP", "imgFotoReceta"]
 - !private ["s7CVarArgP", "indexPathForSelectedRow"]
+- ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "lbNombreReceta"]
 - !private ["s7CVarArgP", "lbTime"]
 - !private ["s7CVarArgP", "listaRecetasPrevias"]
@@ -101,6 +110,9 @@ depends-member:
 - !private ["10Foundation15ContiguousBytesP", "nombre"]
 - !private ["10Foundation15ContiguousBytesP", "subscript"]
 - !private ["10Foundation15ContiguousBytesP", "tiempo"]
+- ["s28CustomDebugStringConvertibleP", "Ingrediente"]
+- ["s28CustomDebugStringConvertibleP", "Receta"]
+- ["s28CustomDebugStringConvertibleP", "UIImage"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "count"]
 - !private ["s28CustomDebugStringConvertibleP", "dequeueReusableCell"]
@@ -110,6 +122,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "imagen"]
 - !private ["s28CustomDebugStringConvertibleP", "imgFotoReceta"]
 - !private ["s28CustomDebugStringConvertibleP", "indexPathForSelectedRow"]
+- ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "lbNombreReceta"]
 - !private ["s28CustomDebugStringConvertibleP", "lbTime"]
 - !private ["s28CustomDebugStringConvertibleP", "listaRecetasPrevias"]
@@ -132,6 +145,9 @@ depends-member:
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s17CustomReflectableP", "text"]
 - !private ["s17CustomReflectableP", "tiempo"]
+- ["s23CustomStringConvertibleP", "Ingrediente"]
+- ["s23CustomStringConvertibleP", "Receta"]
+- ["s23CustomStringConvertibleP", "UIImage"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "count"]
 - !private ["s23CustomStringConvertibleP", "dequeueReusableCell"]
@@ -141,6 +157,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "imagen"]
 - !private ["s23CustomStringConvertibleP", "imgFotoReceta"]
 - !private ["s23CustomStringConvertibleP", "indexPathForSelectedRow"]
+- ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "lbNombreReceta"]
 - !private ["s23CustomStringConvertibleP", "lbTime"]
 - !private ["s23CustomStringConvertibleP", "listaRecetasPrevias"]
@@ -172,6 +189,9 @@ depends-member:
 - !private ["SE", "row"]
 - !private ["SE", "subscript"]
 - !private ["SE", "text"]
+- ["SQ", "Ingrediente"]
+- ["SQ", "Receta"]
+- ["SQ", "UIImage"]
 - ["SQ", ""]
 - !private ["SQ", "count"]
 - !private ["SQ", "dequeueReusableCell"]
@@ -181,6 +201,7 @@ depends-member:
 - !private ["SQ", "imagen"]
 - !private ["SQ", "imgFotoReceta"]
 - !private ["SQ", "indexPathForSelectedRow"]
+- ["SQ", "init"]
 - !private ["SQ", "lbNombreReceta"]
 - !private ["SQ", "lbTime"]
 - !private ["SQ", "listaRecetasPrevias"]
@@ -214,6 +235,9 @@ depends-member:
 - ["s26ExpressibleByStringLiteralP", ""]
 - ["s33ExpressibleByUnicodeScalarLiteralP", ""]
 - !private ["SF", ""]
+- ["SH", "Ingrediente"]
+- ["SH", "Receta"]
+- ["SH", "UIImage"]
 - ["SH", ""]
 - !private ["SH", "count"]
 - !private ["SH", "dequeueReusableCell"]
@@ -223,6 +247,7 @@ depends-member:
 - !private ["SH", "imagen"]
 - !private ["SH", "imgFotoReceta"]
 - !private ["SH", "indexPathForSelectedRow"]
+- ["SH", "init"]
 - !private ["SH", "lbNombreReceta"]
 - !private ["SH", "lbTime"]
 - !private ["SH", "listaRecetasPrevias"]
@@ -237,6 +262,7 @@ depends-member:
 - !private ["SH", "unaReceta"]
 - !private ["SH", "viewDidLoad"]
 - !private ["10Foundation9IndexPathV", "row"]
+- ["13CookAssistant11IngredienteC", "init"]
 - ["s25LosslessStringConvertibleP", ""]
 - !private ["SM", ""]
 - !private ["SM", "count"]
@@ -249,8 +275,10 @@ depends-member:
 - !private ["10Foundation19MutableDataProtocolP", "subscript"]
 - ["So8NSCodingP", "CGFloat"]
 - ["So8NSCodingP", "IndexPath"]
+- ["So8NSCodingP", "Ingrediente"]
 - ["So8NSCodingP", "Int"]
 - ["So8NSCodingP", "Receta"]
+- ["So8NSCodingP", "UIImage"]
 - ["So8NSCodingP", "UIImageView"]
 - ["So8NSCodingP", "UILabel"]
 - ["So8NSCodingP", "UIStoryboardSegue"]
@@ -277,8 +305,10 @@ depends-member:
 - ["So8NSCodingP", "viewDidLoad"]
 - ["So26NSExtensionRequestHandlingP", "CGFloat"]
 - ["So26NSExtensionRequestHandlingP", "IndexPath"]
+- ["So26NSExtensionRequestHandlingP", "Ingrediente"]
 - ["So26NSExtensionRequestHandlingP", "Int"]
 - ["So26NSExtensionRequestHandlingP", "Receta"]
+- ["So26NSExtensionRequestHandlingP", "UIImage"]
 - ["So26NSExtensionRequestHandlingP", "UIStoryboardSegue"]
 - ["So26NSExtensionRequestHandlingP", "UITableView"]
 - ["So26NSExtensionRequestHandlingP", "UITableViewCell"]
@@ -293,10 +323,14 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "title"]
 - !private ["So26NSExtensionRequestHandlingP", "unaReceta"]
 - ["So26NSExtensionRequestHandlingP", "viewDidLoad"]
+- ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderWritingP", "init"]
 - ["So8NSObjectC", "CGFloat"]
 - ["So8NSObjectC", "IndexPath"]
+- ["So8NSObjectC", "Ingrediente"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "Receta"]
+- ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UILabel"]
 - ["So8NSObjectC", "UIStoryboardSegue"]
@@ -310,17 +344,25 @@ depends-member:
 - !private ["So8NSObjectC", "destination"]
 - !private ["So8NSObjectC", "identifier"]
 - !private ["So8NSObjectC", "image"]
+- ["So8NSObjectC", "imageNamed"]
+- ["So8NSObjectC", "imageWithCGImage"]
+- ["So8NSObjectC", "imageWithCIImage"]
+- ["So8NSObjectC", "imageWithContentsOfFile"]
+- ["So8NSObjectC", "imageWithData"]
 - !private ["So8NSObjectC", "imagen"]
 - ["So8NSObjectC", "imgFotoReceta"]
 - !private ["So8NSObjectC", "indexPathForSelectedRow"]
 - ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "jpegData"]
 - ["So8NSObjectC", "lbNombreReceta"]
 - ["So8NSObjectC", "lbTime"]
 - ["So8NSObjectC", "listaRecetasPrevias"]
 - !private ["So8NSObjectC", "nombre"]
 - ["So8NSObjectC", "numberOfSections"]
+- ["So8NSObjectC", "pngData"]
 - ["So8NSObjectC", "prepare"]
 - ["So8NSObjectC", "prepareForSegue"]
+- ["So8NSObjectC", "systemImageNamed"]
 - ["So8NSObjectC", "tableView"]
 - !private ["So8NSObjectC", "text"]
 - !private ["So8NSObjectC", "tiempo"]
@@ -329,8 +371,9 @@ depends-member:
 - ["So8NSObjectC", "viewDidLoad"]
 - ["So8NSObjectP", "CGFloat"]
 - ["So8NSObjectP", "IndexPath"]
-- ["So8NSObjectP", "Int"]
+- ["So8NSObjectP", "Ingrediente"]
 - ["So8NSObjectP", "Receta"]
+- ["So8NSObjectP", "UIImage"]
 - ["So8NSObjectP", "UIImageView"]
 - ["So8NSObjectP", "UILabel"]
 - ["So8NSObjectP", "UIStoryboardSegue"]
@@ -344,23 +387,32 @@ depends-member:
 - !private ["So8NSObjectP", "destination"]
 - !private ["So8NSObjectP", "identifier"]
 - !private ["So8NSObjectP", "image"]
+- ["So8NSObjectP", "imageNamed"]
+- ["So8NSObjectP", "imageWithCGImage"]
+- ["So8NSObjectP", "imageWithCIImage"]
+- ["So8NSObjectP", "imageWithContentsOfFile"]
+- ["So8NSObjectP", "imageWithData"]
 - !private ["So8NSObjectP", "imagen"]
 - ["So8NSObjectP", "imgFotoReceta"]
 - !private ["So8NSObjectP", "indexPathForSelectedRow"]
 - ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "jpegData"]
 - ["So8NSObjectP", "lbNombreReceta"]
 - ["So8NSObjectP", "lbTime"]
 - ["So8NSObjectP", "listaRecetasPrevias"]
 - !private ["So8NSObjectP", "nombre"]
 - ["So8NSObjectP", "numberOfSections"]
+- ["So8NSObjectP", "pngData"]
 - ["So8NSObjectP", "prepare"]
 - ["So8NSObjectP", "prepareForSegue"]
+- ["So8NSObjectP", "systemImageNamed"]
 - ["So8NSObjectP", "tableView"]
 - !private ["So8NSObjectP", "text"]
 - !private ["So8NSObjectP", "tiempo"]
 - !private ["So8NSObjectP", "title"]
 - !private ["So8NSObjectP", "unaReceta"]
 - ["So8NSObjectP", "viewDidLoad"]
+- ["So14NSSecureCodingP", "init"]
 - !private ["Sj", ""]
 - !private ["Sq", "image"]
 - !private ["Sq", "indexPathForSelectedRow"]
@@ -379,6 +431,7 @@ depends-member:
 - !private ["Sm", "subscript"]
 - !private ["Sm", "tiempo"]
 - !private ["13CookAssistant6RecetaC", "imagen"]
+- ["13CookAssistant6RecetaC", "init"]
 - !private ["13CookAssistant6RecetaC", "nombre"]
 - !private ["13CookAssistant6RecetaC", "tiempo"]
 - !private ["10Foundation20ReferenceConvertibleP", "row"]
@@ -393,8 +446,10 @@ depends-member:
 - !private ["Sx", ""]
 - ["13CookAssistant33TableViewControllerRecetasPreviasC", "CGFloat"]
 - ["13CookAssistant33TableViewControllerRecetasPreviasC", "IndexPath"]
+- ["13CookAssistant33TableViewControllerRecetasPreviasC", "Ingrediente"]
 - ["13CookAssistant33TableViewControllerRecetasPreviasC", "Int"]
 - ["13CookAssistant33TableViewControllerRecetasPreviasC", "Receta"]
+- ["13CookAssistant33TableViewControllerRecetasPreviasC", "UIImage"]
 - ["13CookAssistant33TableViewControllerRecetasPreviasC", "UIStoryboardSegue"]
 - ["13CookAssistant33TableViewControllerRecetasPreviasC", "UITableView"]
 - ["13CookAssistant33TableViewControllerRecetasPreviasC", "UITableViewCell"]
@@ -438,8 +493,10 @@ depends-member:
 - !private ["So12UIAppearanceP", "text"]
 - ["So21UIAppearanceContainerP", "CGFloat"]
 - ["So21UIAppearanceContainerP", "IndexPath"]
+- ["So21UIAppearanceContainerP", "Ingrediente"]
 - ["So21UIAppearanceContainerP", "Int"]
 - ["So21UIAppearanceContainerP", "Receta"]
+- ["So21UIAppearanceContainerP", "UIImage"]
 - ["So21UIAppearanceContainerP", "UIImageView"]
 - ["So21UIAppearanceContainerP", "UILabel"]
 - ["So21UIAppearanceContainerP", "UIStoryboardSegue"]
@@ -466,8 +523,10 @@ depends-member:
 - ["So21UIAppearanceContainerP", "viewDidLoad"]
 - ["So18UIContentContainerP", "CGFloat"]
 - ["So18UIContentContainerP", "IndexPath"]
+- ["So18UIContentContainerP", "Ingrediente"]
 - ["So18UIContentContainerP", "Int"]
 - ["So18UIContentContainerP", "Receta"]
+- ["So18UIContentContainerP", "UIImage"]
 - ["So18UIContentContainerP", "UIStoryboardSegue"]
 - ["So18UIContentContainerP", "UITableView"]
 - ["So18UIContentContainerP", "UITableViewCell"]
@@ -512,8 +571,10 @@ depends-member:
 - !private ["So13UIDynamicItemP", "text"]
 - ["So18UIFocusEnvironmentP", "CGFloat"]
 - ["So18UIFocusEnvironmentP", "IndexPath"]
+- ["So18UIFocusEnvironmentP", "Ingrediente"]
 - ["So18UIFocusEnvironmentP", "Int"]
 - ["So18UIFocusEnvironmentP", "Receta"]
+- ["So18UIFocusEnvironmentP", "UIImage"]
 - ["So18UIFocusEnvironmentP", "UIImageView"]
 - ["So18UIFocusEnvironmentP", "UILabel"]
 - ["So18UIFocusEnvironmentP", "UIStoryboardSegue"]
@@ -573,7 +634,9 @@ depends-member:
 - ["So27UIGestureRecognizerDelegateP", "init"]
 - ["So27UIGestureRecognizerDelegateP", "lbNombreReceta"]
 - ["So27UIGestureRecognizerDelegateP", "lbTime"]
+- ["So7UIImageC", "init"]
 - !private ["So11UIImageViewC", "image"]
+- ["So39UIItemProviderPresentationSizeProvidingP", "init"]
 - !private ["So7UILabelC", "text"]
 - ["So24UILargeContentViewerItemP", "UIImageView"]
 - ["So24UILargeContentViewerItemP", "UILabel"]
@@ -589,8 +652,10 @@ depends-member:
 - !private ["So24UILargeContentViewerItemP", "text"]
 - ["So30UIPasteConfigurationSupportingP", "CGFloat"]
 - ["So30UIPasteConfigurationSupportingP", "IndexPath"]
+- ["So30UIPasteConfigurationSupportingP", "Ingrediente"]
 - ["So30UIPasteConfigurationSupportingP", "Int"]
 - ["So30UIPasteConfigurationSupportingP", "Receta"]
+- ["So30UIPasteConfigurationSupportingP", "UIImage"]
 - ["So30UIPasteConfigurationSupportingP", "UIImageView"]
 - ["So30UIPasteConfigurationSupportingP", "UILabel"]
 - ["So30UIPasteConfigurationSupportingP", "UIStoryboardSegue"]
@@ -618,8 +683,10 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "viewDidLoad"]
 - ["So11UIResponderC", "CGFloat"]
 - ["So11UIResponderC", "IndexPath"]
+- ["So11UIResponderC", "Ingrediente"]
 - ["So11UIResponderC", "Int"]
 - ["So11UIResponderC", "Receta"]
+- ["So11UIResponderC", "UIImage"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UILabel"]
 - ["So11UIResponderC", "UIStoryboardSegue"]
@@ -647,8 +714,10 @@ depends-member:
 - ["So11UIResponderC", "viewDidLoad"]
 - ["So30UIResponderStandardEditActionsP", "CGFloat"]
 - ["So30UIResponderStandardEditActionsP", "IndexPath"]
+- ["So30UIResponderStandardEditActionsP", "Ingrediente"]
 - ["So30UIResponderStandardEditActionsP", "Int"]
 - ["So30UIResponderStandardEditActionsP", "Receta"]
+- ["So30UIResponderStandardEditActionsP", "UIImage"]
 - ["So30UIResponderStandardEditActionsP", "UIImageView"]
 - ["So30UIResponderStandardEditActionsP", "UILabel"]
 - ["So30UIResponderStandardEditActionsP", "UIStoryboardSegue"]
@@ -680,8 +749,10 @@ depends-member:
 - !private ["So12UIScrollViewC", "indexPathForSelectedRow"]
 - ["So20UIScrollViewDelegateP", "CGFloat"]
 - ["So20UIScrollViewDelegateP", "IndexPath"]
+- ["So20UIScrollViewDelegateP", "Ingrediente"]
 - ["So20UIScrollViewDelegateP", "Int"]
 - ["So20UIScrollViewDelegateP", "Receta"]
+- ["So20UIScrollViewDelegateP", "UIImage"]
 - ["So20UIScrollViewDelegateP", "UIStoryboardSegue"]
 - ["So20UIScrollViewDelegateP", "UITableView"]
 - ["So20UIScrollViewDelegateP", "UITableViewCell"]
@@ -700,8 +771,10 @@ depends-member:
 - !private ["So35UISpringLoadedInteractionSupportingP", "indexPathForSelectedRow"]
 - ["So16UIStateRestoringP", "CGFloat"]
 - ["So16UIStateRestoringP", "IndexPath"]
+- ["So16UIStateRestoringP", "Ingrediente"]
 - ["So16UIStateRestoringP", "Int"]
 - ["So16UIStateRestoringP", "Receta"]
+- ["So16UIStateRestoringP", "UIImage"]
 - ["So16UIStateRestoringP", "UIStoryboardSegue"]
 - ["So16UIStateRestoringP", "UITableView"]
 - ["So16UIStateRestoringP", "UITableViewCell"]
@@ -729,8 +802,10 @@ depends-member:
 - ["So15UITableViewCellC", "lbTime"]
 - ["So21UITableViewControllerC", "CGFloat"]
 - ["So21UITableViewControllerC", "IndexPath"]
+- ["So21UITableViewControllerC", "Ingrediente"]
 - ["So21UITableViewControllerC", "Int"]
 - ["So21UITableViewControllerC", "Receta"]
+- ["So21UITableViewControllerC", "UIImage"]
 - ["So21UITableViewControllerC", "UIStoryboardSegue"]
 - ["So21UITableViewControllerC", "UITableView"]
 - ["So21UITableViewControllerC", "UITableViewCell"]
@@ -746,8 +821,10 @@ depends-member:
 - ["So21UITableViewControllerC", "viewDidLoad"]
 - ["So21UITableViewDataSourceP", "CGFloat"]
 - ["So21UITableViewDataSourceP", "IndexPath"]
+- ["So21UITableViewDataSourceP", "Ingrediente"]
 - ["So21UITableViewDataSourceP", "Int"]
 - ["So21UITableViewDataSourceP", "Receta"]
+- ["So21UITableViewDataSourceP", "UIImage"]
 - ["So21UITableViewDataSourceP", "UIStoryboardSegue"]
 - ["So21UITableViewDataSourceP", "UITableView"]
 - ["So21UITableViewDataSourceP", "UITableViewCell"]
@@ -764,8 +841,10 @@ depends-member:
 - ["So21UITableViewDataSourceP", "viewDidLoad"]
 - ["So19UITableViewDelegateP", "CGFloat"]
 - ["So19UITableViewDelegateP", "IndexPath"]
+- ["So19UITableViewDelegateP", "Ingrediente"]
 - ["So19UITableViewDelegateP", "Int"]
 - ["So19UITableViewDelegateP", "Receta"]
+- ["So19UITableViewDelegateP", "UIImage"]
 - ["So19UITableViewDelegateP", "UIStoryboardSegue"]
 - ["So19UITableViewDelegateP", "UITableView"]
 - ["So19UITableViewDelegateP", "UITableViewCell"]
@@ -782,8 +861,10 @@ depends-member:
 - ["So19UITableViewDelegateP", "viewDidLoad"]
 - ["So18UITraitEnvironmentP", "CGFloat"]
 - ["So18UITraitEnvironmentP", "IndexPath"]
+- ["So18UITraitEnvironmentP", "Ingrediente"]
 - ["So18UITraitEnvironmentP", "Int"]
 - ["So18UITraitEnvironmentP", "Receta"]
+- ["So18UITraitEnvironmentP", "UIImage"]
 - ["So18UITraitEnvironmentP", "UIImageView"]
 - ["So18UITraitEnvironmentP", "UILabel"]
 - ["So18UITraitEnvironmentP", "UIStoryboardSegue"]
@@ -810,8 +891,10 @@ depends-member:
 - ["So18UITraitEnvironmentP", "viewDidLoad"]
 - ["So23UIUserActivityRestoringP", "CGFloat"]
 - ["So23UIUserActivityRestoringP", "IndexPath"]
+- ["So23UIUserActivityRestoringP", "Ingrediente"]
 - ["So23UIUserActivityRestoringP", "Int"]
 - ["So23UIUserActivityRestoringP", "Receta"]
+- ["So23UIUserActivityRestoringP", "UIImage"]
 - ["So23UIUserActivityRestoringP", "UIImageView"]
 - ["So23UIUserActivityRestoringP", "UILabel"]
 - ["So23UIUserActivityRestoringP", "UIStoryboardSegue"]
@@ -851,8 +934,10 @@ depends-member:
 - !private ["So6UIViewC", "text"]
 - ["So16UIViewControllerC", "CGFloat"]
 - ["So16UIViewControllerC", "IndexPath"]
+- ["So16UIViewControllerC", "Ingrediente"]
 - ["So16UIViewControllerC", "Int"]
 - ["So16UIViewControllerC", "Receta"]
+- ["So16UIViewControllerC", "UIImage"]
 - ["So16UIViewControllerC", "UIStoryboardSegue"]
 - ["So16UIViewControllerC", "UITableView"]
 - ["So16UIViewControllerC", "UITableViewCell"]
@@ -878,14 +963,19 @@ depends-member:
 - !private ["s24_DestructorSafeContainerP", "nombre"]
 - !private ["s24_DestructorSafeContainerP", "subscript"]
 - !private ["s24_DestructorSafeContainerP", "tiempo"]
+- ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
 - ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", ""]
 - ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
-- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", ""]
+- ["s26_ExpressibleByImageLiteralP", "init"]
 - !private ["s19_HasContiguousBytesP", "count"]
 - !private ["s19_HasContiguousBytesP", "subscript"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Ingrediente"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Receta"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "UIImage"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dequeueReusableCell"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "destination"]
@@ -894,6 +984,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "imagen"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "imgFotoReceta"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "indexPathForSelectedRow"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "lbNombreReceta"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "lbTime"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "listaRecetasPrevias"]
@@ -905,6 +996,9 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "title"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "unaReceta"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidLoad"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Ingrediente"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Receta"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "UIImage"]
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "dequeueReusableCell"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "destination"]
@@ -913,6 +1007,7 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "imagen"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "imgFotoReceta"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "indexPathForSelectedRow"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "lbNombreReceta"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "lbTime"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "listaRecetasPrevias"]
@@ -975,18 +1070,22 @@ depends-nominal:
 - !private "SF"
 - "SH"
 - !private "10Foundation9IndexPathV"
+- "13CookAssistant11IngredienteC"
 - "s25LosslessStringConvertibleP"
 - !private "SM"
 - !private "10Foundation19MutableDataProtocolP"
 - "So8NSCodingP"
 - "So26NSExtensionRequestHandlingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
 - "So8NSObjectC"
 - "So8NSObjectP"
+- "So14NSSecureCodingP"
 - !private "Sj"
 - !private "Sq"
 - !private "Sk"
 - !private "Sm"
-- !private "13CookAssistant6RecetaC"
+- "13CookAssistant6RecetaC"
 - !private "10Foundation20ReferenceConvertibleP"
 - "ST"
 - !private "s13SignedNumericP"
@@ -1009,7 +1108,9 @@ depends-nominal:
 - "So20UIFocusItemContainerP"
 - !private "So30UIFocusItemScrollableContainerP"
 - "So27UIGestureRecognizerDelegateP"
+- "So7UIImageC"
 - !private "So11UIImageViewC"
+- "So39UIItemProviderPresentationSizeProvidingP"
 - !private "So7UILabelC"
 - "So24UILargeContentViewerItemP"
 - "So30UIPasteConfigurationSupportingP"
@@ -1032,10 +1133,12 @@ depends-nominal:
 - !private "13CookAssistant010ViewRecipeC10ControllerC"
 - !private "s14_ArrayProtocolP"
 - !private "s24_DestructorSafeContainerP"
+- "s35_ExpressibleByBuiltinBooleanLiteralP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - "s35_ExpressibleByBuiltinIntegerLiteralP"
-- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
 - "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s26_ExpressibleByImageLiteralP"
 - !private "s19_HasContiguousBytesP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
 - "10Foundation27_KeyValueCodingAndObservingP"
@@ -1073,4 +1176,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "fa97df26cb863a693ec9d960eea89ea8"
+interface-hash: "97ce2f8f643cb6a23b15fdf19847876f"

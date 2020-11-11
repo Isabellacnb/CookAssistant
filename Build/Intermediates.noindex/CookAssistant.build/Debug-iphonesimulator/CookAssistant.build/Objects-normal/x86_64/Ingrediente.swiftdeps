@@ -7,6 +7,7 @@ provides-member:
 - ["13CookAssistant11IngredienteC", ""]
 provides-dynamic-lookup:
 - "cantidad"
+- "medida"
 - "nombre"
 depends-top-level:
 - "AssignmentPrecedence"
@@ -18,22 +19,27 @@ depends-member:
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "cantidad"]
 - !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "medida"]
 - !private ["s7CVarArgP", "nombre"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "cantidad"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "medida"]
 - !private ["s28CustomDebugStringConvertibleP", "nombre"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "cantidad"]
 - !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "medida"]
 - !private ["s23CustomStringConvertibleP", "nombre"]
 - ["SQ", ""]
 - !private ["SQ", "cantidad"]
 - !private ["SQ", "init"]
+- !private ["SQ", "medida"]
 - !private ["SQ", "nombre"]
 - ["SH", ""]
 - !private ["SH", "cantidad"]
 - !private ["SH", "init"]
+- !private ["SH", "medida"]
 - !private ["SH", "nombre"]
 - ["13CookAssistant11IngredienteC", "Int"]
 - ["13CookAssistant11IngredienteC", "String"]
@@ -41,28 +47,33 @@ depends-member:
 - ["13CookAssistant11IngredienteC", "cantidad"]
 - ["13CookAssistant11IngredienteC", "deinit"]
 - ["13CookAssistant11IngredienteC", "init"]
+- ["13CookAssistant11IngredienteC", "medida"]
 - ["13CookAssistant11IngredienteC", "nombre"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "String"]
 - ["So8NSObjectC", ""]
 - ["So8NSObjectC", "cantidad"]
 - ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "medida"]
 - ["So8NSObjectC", "nombre"]
 - ["So8NSObjectP", "Int"]
 - ["So8NSObjectP", "String"]
 - ["So8NSObjectP", ""]
 - ["So8NSObjectP", "cantidad"]
 - ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "medida"]
 - ["So8NSObjectP", "nombre"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cantidad"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "medida"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "nombre"]
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "cantidad"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "medida"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "nombre"]
 depends-nominal:
 - "s7CVarArgP"
@@ -107,4 +118,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "e9789484b7658e085fb5d861afe44685"
+interface-hash: "33abe67ecf51e3d6fca9005efc8002d4"

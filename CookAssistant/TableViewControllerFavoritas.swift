@@ -18,16 +18,25 @@ class customTableViewCell: UITableViewCell{
 
 class TableViewControllerFavoritas: UITableViewController {
 
-    var listaRecetasFavoritas = [Receta(nombre: "Cereal con leche", pasos: "Aqui van las instrucciones para servir el cereal y luego la leche en un bowl y asi poder desayunar", esFav: true, imagen: UIImage(named: "cereal")!, ingredientes: [Ingrediente(nombre: "Leche", cantidad: 1), Ingrediente(nombre: "Cereal", cantidad: 1)], tiempo: "10 Minutos")]
+    var listaRecetasFavoritas = [Receta(nombre: "Cereal con leche", pasos: "Aqui van las instrucciones para servir el cereal y luego la leche en un bowl y asi poder desayunar", esFav: true, imagen: UIImage(named: "cereal")!, ingredientes: [Ingrediente(nombre: "Leche", cantidad: 1, medida: 3), Ingrediente(nombre: "Cereal", cantidad: 2, medida: 3)], tiempo: "120")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Recetas Favoritas"
+        // Agregar logo al navigation bar
+        let imageV = UIImageView(image: #imageLiteral(resourceName: "cookAssistantLogo"))
+        imageV.frame = CGRect(x: 0, y: 0, width: 170, height: 42)
+        imageV.contentMode = .scaleAspectFit
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 170, height: 42))
+        titleView.addSubview(imageV)
+        titleView.backgroundColor = .clear
+        self.navigationItem.titleView = titleView
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     // MARK: - Table view data source
@@ -51,7 +60,7 @@ class TableViewControllerFavoritas: UITableViewController {
 
         cell.lbNombreReceta.text = listaRecetasFavoritas[indexPath.row].nombre
         cell.imgFotoReceta.image = listaRecetasFavoritas[indexPath.row].imagen
-        cell.lbTime.text = listaRecetasFavoritas[indexPath.row].tiempo
+        cell.lbTime.text = listaRecetasFavoritas[indexPath.row].tiempo + " min"
 
         return cell
     }
@@ -96,7 +105,7 @@ class TableViewControllerFavoritas: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "viewRecipe" {
+        if segue.identifier == "viewRecipeFav" {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
             vistaVer.unaReceta = listaRecetasFavoritas[indice.row]

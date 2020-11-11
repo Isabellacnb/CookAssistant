@@ -20,11 +20,14 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
     override func viewDidLoad() {
         super.viewDidLoad()
         // Agregar logo al navigation bar
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "cookAssistantLogo")
-        imageView.image = image
-        navigationItem.titleView = imageView
+        let imageV = UIImageView(image: #imageLiteral(resourceName: "cookAssistantLogo"))
+        imageV.frame = CGRect(x: 0, y: 0, width: 170, height: 42)
+        imageV.contentMode = .scaleAspectFit
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 170, height: 42))
+        titleView.addSubview(imageV)
+        titleView.backgroundColor = .clear
+        self.navigationItem.titleView = titleView
 
     }
 
@@ -46,7 +49,8 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
 
         cell.textLabel?.text = listaRecetas[indexPath.row].nombre
         if (listaRecetas[indexPath.row].esFav == true) {
-            cell.imageView?.image = UIImage(systemName: "star.fill")
+            let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .black, scale: .small)
+            cell.imageView?.image = UIImage(systemName: "star.fill", withConfiguration: symbolConfig)
         }
 
         return cell

@@ -231,11 +231,14 @@ SWIFT_CLASS("_TtC13CookAssistant23AddRecipeViewController")
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified tfNombre;
 @property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified tvInstruciones;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified imageLoaded;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnSelectMeasure;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableViewMeasures;
 - (void)viewDidLoad;
 - (void)dismissKeyboard;
 - (IBAction)guardaReceta:(UIButton * _Nonnull)sender;
 - (IBAction)closeButton:(UIButton * _Nonnull)sender;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (IBAction)addIngredient:(id _Nonnull)sender;
@@ -250,6 +253,9 @@ SWIFT_CLASS("_TtC13CookAssistant23AddRecipeViewController")
 - (void)tableView:(UITableView * _Nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)tableView:(UITableView * _Nonnull)tableView moveRowAtIndexPath:(NSIndexPath * _Nonnull)fromIndexPath toIndexPath:(NSIndexPath * _Nonnull)to;
 - (BOOL)tableView:(UITableView * _Nonnull)tableView canMoveRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (IBAction)btnSelectMeasure:(id _Nonnull)sender;
+- (void)tableView:(UITableView * _Nonnull)tableView didHighlightRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -350,27 +356,34 @@ SWIFT_CLASS("_TtC13CookAssistant14ViewController")
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableViewIngrediente;
 @property (nonatomic, weak) IBOutlet UIStepper * _Null_unspecified stCantidad;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified addIngredient;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnMeasure;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableViewMeasures;
 - (void)viewDidLoad;
 - (void)dismissKeyboard;
 - (IBAction)agregarIngrediente:(UIButton * _Nonnull)sender;
 - (IBAction)stepperValueChanged:(UIStepper * _Nonnull)sender;
 - (IBAction)cambioManualCantidad:(id _Nonnull)sender;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)tableView:(UITableView * _Nonnull)tableView canEditRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)tableView:(UITableView * _Nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)tableView:(UITableView * _Nonnull)tableView moveRowAtIndexPath:(NSIndexPath * _Nonnull)fromIndexPath toIndexPath:(NSIndexPath * _Nonnull)to;
 - (BOOL)tableView:(UITableView * _Nonnull)tableView canMoveRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (IBAction)btnSelectMeasure:(id _Nonnull)sender;
+- (void)tableView:(UITableView * _Nonnull)tableView didHighlightRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIBarButtonItem;
 @class UILabel;
 @class UIImageView;
-@class UIBarButtonItem;
 
 SWIFT_CLASS("_TtC13CookAssistant24ViewRecipeViewController")
 @interface ViewRecipeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified btnBackRecipes;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lbRecipeName;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imgRecipe;
 @property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified tfvInstructions;

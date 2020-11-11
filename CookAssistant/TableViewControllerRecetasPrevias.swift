@@ -17,11 +17,19 @@ class customTableViewCell2: UITableViewCell{
 
 class TableViewControllerRecetasPrevias: UITableViewController {
 
-    var listaRecetasPrevias : [Receta] = []
+    var listaRecetasPrevias = [Receta(nombre: "Cereal con leche", pasos: "Aqui van las instrucciones para servir el cereal y luego la leche en un bowl y asi poder desayunar", esFav: true, imagen: UIImage(named: "cereal")!, ingredientes: [Ingrediente(nombre: "Leche", cantidad: 1, medida: 3), Ingrediente(nombre: "Cereal", cantidad: 2, medida: 3)], tiempo: "120")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Recetas Previas"
+        // Agregar logo al navigation bar
+        let imageV = UIImageView(image: #imageLiteral(resourceName: "cookAssistantLogo"))
+        imageV.frame = CGRect(x: 0, y: 0, width: 170, height: 42)
+        imageV.contentMode = .scaleAspectFit
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 170, height: 42))
+        titleView.addSubview(imageV)
+        titleView.backgroundColor = .clear
+        self.navigationItem.titleView = titleView
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,17 +58,18 @@ class TableViewControllerRecetasPrevias: UITableViewController {
 
         cell.lbNombreReceta.text = listaRecetasPrevias[indexPath.row].nombre
         cell.imgFotoReceta.image = listaRecetasPrevias[indexPath.row].imagen
-        cell.lbTime.text = listaRecetasPrevias[indexPath.row].tiempo
+        cell.lbTime.text = listaRecetasPrevias[indexPath.row].tiempo + " min"
 
         return cell
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "viewRecipe" {
+        if segue.identifier == "viewRecipeRec" {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
             vistaVer.unaReceta = listaRecetasPrevias[indice.row]
         }
     }
+
 
 }

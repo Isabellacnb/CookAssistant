@@ -11,6 +11,7 @@ provides-dynamic-lookup:
 - "ingredientes"
 - "nombre"
 - "pasos"
+- "tiempo"
 depends-top-level:
 - "AssignmentPrecedence"
 - "Bool"
@@ -27,6 +28,7 @@ depends-member:
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "nombre"]
 - !private ["s7CVarArgP", "pasos"]
+- !private ["s7CVarArgP", "tiempo"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "esFav"]
 - !private ["s28CustomDebugStringConvertibleP", "imagen"]
@@ -34,6 +36,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "nombre"]
 - !private ["s28CustomDebugStringConvertibleP", "pasos"]
+- !private ["s28CustomDebugStringConvertibleP", "tiempo"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "esFav"]
 - !private ["s23CustomStringConvertibleP", "imagen"]
@@ -41,6 +44,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "nombre"]
 - !private ["s23CustomStringConvertibleP", "pasos"]
+- !private ["s23CustomStringConvertibleP", "tiempo"]
 - ["SQ", ""]
 - !private ["SQ", "esFav"]
 - !private ["SQ", "imagen"]
@@ -48,6 +52,7 @@ depends-member:
 - !private ["SQ", "init"]
 - !private ["SQ", "nombre"]
 - !private ["SQ", "pasos"]
+- !private ["SQ", "tiempo"]
 - ["SH", ""]
 - !private ["SH", "esFav"]
 - !private ["SH", "imagen"]
@@ -55,6 +60,7 @@ depends-member:
 - !private ["SH", "init"]
 - !private ["SH", "nombre"]
 - !private ["SH", "pasos"]
+- !private ["SH", "tiempo"]
 - ["So8NSObjectC", "Bool"]
 - ["So8NSObjectC", "Ingrediente"]
 - ["So8NSObjectC", "String"]
@@ -66,6 +72,7 @@ depends-member:
 - ["So8NSObjectC", "init"]
 - ["So8NSObjectC", "nombre"]
 - ["So8NSObjectC", "pasos"]
+- ["So8NSObjectC", "tiempo"]
 - ["So8NSObjectP", ""]
 - ["So8NSObjectP", "esFav"]
 - ["So8NSObjectP", "imagen"]
@@ -73,6 +80,7 @@ depends-member:
 - ["So8NSObjectP", "init"]
 - ["So8NSObjectP", "nombre"]
 - ["So8NSObjectP", "pasos"]
+- ["So8NSObjectP", "tiempo"]
 - ["13CookAssistant6RecetaC", "Bool"]
 - ["13CookAssistant6RecetaC", "Ingrediente"]
 - ["13CookAssistant6RecetaC", "String"]
@@ -85,6 +93,7 @@ depends-member:
 - ["13CookAssistant6RecetaC", "init"]
 - ["13CookAssistant6RecetaC", "nombre"]
 - ["13CookAssistant6RecetaC", "pasos"]
+- ["13CookAssistant6RecetaC", "tiempo"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "esFav"]
@@ -93,6 +102,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "nombre"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pasos"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tiempo"]
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "esFav"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "imagen"]
@@ -100,6 +110,7 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "nombre"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "pasos"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "tiempo"]
 depends-nominal:
 - "s7CVarArgP"
 - "s28CustomDebugStringConvertibleP"
@@ -142,4 +153,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "223f1fa799eb5a4a6d2af89c4f7c6d79"
+interface-hash: "368e42dceffbe0331b43b6d3960a047d"

@@ -11,10 +11,12 @@ import UIKit
 class Ingrediente: NSObject {
     var nombre : String
     var cantidad : Int
+    var medida : Int
         
-    init (nombre : String, cantidad: Int) {
+    init (nombre : String, cantidad: Int, medida: Int) {
         self.nombre = nombre
         self.cantidad = cantidad
+        self.medida = medida
     }
 
 }
