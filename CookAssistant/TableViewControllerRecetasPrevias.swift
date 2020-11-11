@@ -12,6 +12,7 @@ class customTableViewCell2: UITableViewCell{
     
     @IBOutlet weak var imgFotoReceta: UIImageView!
     @IBOutlet weak var lbNombreReceta: UILabel!
+    @IBOutlet weak var lbTime: UILabel!
 }
 
 class TableViewControllerRecetasPrevias: UITableViewController {
@@ -49,6 +50,7 @@ class TableViewControllerRecetasPrevias: UITableViewController {
 
         cell.lbNombreReceta.text = listaRecetasPrevias[indexPath.row].nombre
         cell.imgFotoReceta.image = listaRecetasPrevias[indexPath.row].imagen
+        cell.lbTime.text = listaRecetasPrevias[indexPath.row].tiempo
 
         return cell
     }

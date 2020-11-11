@@ -12,12 +12,13 @@ class customTableViewCell: UITableViewCell{
     
     @IBOutlet weak var imgFotoReceta: UIImageView!
     @IBOutlet weak var lbNombreReceta: UILabel!
+    @IBOutlet weak var lbTime: UILabel!
 }
 
 
 class TableViewControllerFavoritas: UITableViewController {
 
-    var listaRecetasFavoritas : [Receta] = []
+    var listaRecetasFavoritas = [Receta(nombre: "Cereal con leche", pasos: "Aqui van las instrucciones para servir el cereal y luego la leche en un bowl y asi poder desayunar", esFav: true, imagen: UIImage(named: "cereal")!, ingredientes: [Ingrediente(nombre: "Leche", cantidad: 1), Ingrediente(nombre: "Cereal", cantidad: 1)], tiempo: "10 Minutos")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +51,19 @@ class TableViewControllerFavoritas: UITableViewController {
 
         cell.lbNombreReceta.text = listaRecetasFavoritas[indexPath.row].nombre
         cell.imgFotoReceta.image = listaRecetasFavoritas[indexPath.row].imagen
+        cell.lbTime.text = listaRecetasFavoritas[indexPath.row].tiempo
 
         return cell
     }
     
-
+/*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+ */
+/*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -70,22 +73,25 @@ class TableViewControllerFavoritas: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+ */
 
-    
+    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let temp = listaRecetasFavoritas[fromIndexPath.row]
         listaRecetasFavoritas[fromIndexPath.row] = listaRecetasFavoritas[to.row]
         listaRecetasFavoritas[to.row] = temp
     }
+ */
     
 
-    
+    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
+ */
 
     // MARK: - Navigation
 
@@ -94,6 +100,7 @@ class TableViewControllerFavoritas: UITableViewController {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
             vistaVer.unaReceta = listaRecetasFavoritas[indice.row]
+            vistaVer.canEdit = false
         }
     }
 

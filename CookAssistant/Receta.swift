@@ -14,12 +14,14 @@ class Receta: NSObject {
     var esFav : Bool
     var imagen : UIImage
     var ingredientes : [Ingrediente]
+    var tiempo : String
     
-    init (nombre : String, pasos : String, esFav : Bool, imagen : UIImage, ingredientes : [Ingrediente]){
+    init (nombre : String, pasos : String, esFav : Bool, imagen : UIImage, ingredientes : [Ingrediente], tiempo : String){
         self.nombre = nombre
         self.pasos = pasos
         self.esFav = esFav
         self.imagen = imagen
         self.ingredientes = ingredientes
+        self.tiempo = tiempo
     }
 }

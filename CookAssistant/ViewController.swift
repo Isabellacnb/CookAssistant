@@ -17,7 +17,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
     @IBOutlet weak var stCantidad: UIStepper!
     @IBOutlet weak var addIngredient: UIButton!
     
-    
+
     
     var listaIngredientes : [Ingrediente] = []
     //var listaRecetas : [Receta] = []
@@ -25,10 +25,18 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Agregar logo al navigation bar
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "cookAssistantLogo")
+        imageView.image = image
+        navigationItem.titleView = imageView
+    
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)         // Do any additional setup after loading the view.
         listaIngredientes = []
-        self.navigationController!.navigationBar.isHidden = true
+        self.navigationController!.navigationBar.isHidden = false
         // Ingredientes
         tfCantidad.text = "0"
         stCantidad.value = 0
@@ -52,7 +60,11 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
                 tfIngrediente.text = ""
                 tfCantidad.text = "0"
                 stCantidad.value = 0
-                
+            } else {
+                let alerta = UIAlertController(title: "ERROR", message: "Completar todos los datos", preferredStyle: .alert)
+                let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alerta.addAction(accion)
+                present(alerta,animated: true, completion: nil)
             }
         }
     }

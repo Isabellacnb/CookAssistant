@@ -14,15 +14,18 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
     var listaRecetas = [Receta]()
     var listaRecetasFavoritas : [Receta] = []
     var listaRecetasPrevias : [Receta] = []
+    var selectedRow : IndexPath = []
+    var recetaModificada : Receta!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Recetas"
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        // Agregar logo al navigation bar
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "cookAssistantLogo")
+        imageView.image = image
+        navigationItem.titleView = imageView
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -101,8 +104,14 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
             let indice = tableView.indexPathForSelectedRow!
             vistaVer.delegado = self
             vistaVer.unaReceta = listaRecetas[indice.row]
-
+            vistaVer.canEdit = true
+            selectedRow = tableView.indexPathForSelectedRow!
         }
+    }
+    
+    @IBAction func unwindModificar(segue: UIStoryboardSegue) {
+        listaRecetas[selectedRow.row] = recetaModificada
+        tableView.reloadData()
     }
     
     // MARK: - Metodos del protocolo agrega categoria

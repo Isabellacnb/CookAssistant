@@ -16,17 +16,21 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var lbRecipeName: UILabel!
     @IBOutlet weak var imgRecipe: UIImageView!
-    @IBOutlet weak var lbInstructions: UILabel!
+    @IBOutlet weak var tfvInstructions: UITextView!
+    @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var btnEdit: UIBarButtonItem!
+    
+    var esFav : Bool!
     var listaIngredientes = [Ingrediente]()
     var delegado : protocolAgregaPrevia!
-    
+    var edited = false
     var unaReceta : Receta!
+    var canEdit = false
     
     @IBOutlet weak var tableViewIngrediente: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Nombrar receta
         lbRecipeName.text = unaReceta.nombre
         
@@ -36,15 +40,25 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         listaIngredientes = unaReceta.ingredientes
         
         // Guardar instrucciones de receta en label
-        lbInstructions.text = unaReceta.pasos
-        
+        tfvInstructions.text = unaReceta.pasos
+        lbTime.text = unaReceta.tiempo
         // Poner imagen a receta
         imgRecipe.image = unaReceta.imagen
-        if unaReceta.esFav {
+        esFav = unaReceta.esFav
+        if esFav {
             btnStarFavorite.imageView?.image = UIImage(systemName: "star.fill")
         } else {
-            unaReceta.esFav = true
-            btnStarFavorite.imageView?.image = UIImage(systemName: "star")        }
+            esFav = true
+            btnStarFavorite.imageView?.image = UIImage(systemName: "star")
+        }
+        
+        // Verificar si se esta viendo receta desde Favoritos o Recetas
+        // Si viene de favoritas no se puede ver la opcion de editar
+        if canEdit == false {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+        }
+        
     }
     
     // MARK: - Métodos de Table View Data Source INGREDIENTES
@@ -65,6 +79,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         return celda
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+    
     //Se activa cuando le dan favorite, para quitar el favorite solamente le vuelven a picar
     @IBOutlet weak var btnStarFavorite: UIButton!
     @IBAction func favorite(_ sender: UIButton) {
@@ -76,19 +94,62 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             btnStarFavorite.imageView?.image = UIImage(systemName: "star.fill")
         }
     }
-    
+    /*
     override func viewDidAppear(_ animated: Bool) {
         delegado.agregaPrevia(rec: unaReceta)
     }
-
-    /*
+ */
+    
+    @IBAction func unwindEditar(segue: UIStoryboardSegue) {
+        lbRecipeName.text = unaReceta.nombre
+        
+        // Guardar string de ingredientes en label
+        tableViewIngrediente.delegate = self
+        tableViewIngrediente.dataSource = self
+        listaIngredientes = unaReceta.ingredientes
+        
+        // Guardar instrucciones de receta en label
+        tfvInstructions.text = unaReceta.pasos
+        lbTime.text = unaReceta.tiempo
+        // Poner imagen a receta
+        imgRecipe.image = unaReceta.imagen
+        if unaReceta.esFav {
+            btnStarFavorite.imageView?.image = UIImage(systemName: "star.fill")
+        } else {
+            unaReceta.esFav = true
+            btnStarFavorite.imageView?.image = UIImage(systemName: "star")
+        }
+        
+        // Verificar si se esta viendo receta desde Favoritos o Recetas
+        // Si viene de favoritas no se puede ver la opcion de editar
+        if canEdit == false {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+        }
+        edited = true
+    }
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        print(edited)
+        if segue.identifier == "editarReceta" {
+            let editarR = segue.destination as! AddRecipeViewController
+            editarR.nombre = lbRecipeName.text
+            editarR.listaIngredientes = listaIngredientes
+            editarR.isFav = unaReceta.esFav
+            editarR.pasos = tfvInstructions.text
+            editarR.tiempo = lbTime.text
+            editarR.imagen = imgRecipe.image
+            editarR.canEdit = true
+        } else if segue.identifier == "unwindMod" {
+            let modificarVista = segue.destination as! TableViewControllerRecetas
+            let recetaNueva = Receta(nombre: lbRecipeName.text!, pasos: tfvInstructions.text!, esFav: esFav!, imagen: imgRecipe.image!, ingredientes: listaIngredientes, tiempo: lbTime.text!)
+            modificarVista.recetaModificada = recetaNueva
+        }
+
     }
-    */
+    
 
 }
