@@ -35,6 +35,9 @@ class TableViewControllerRecetasPrevias: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        if FileManager.default.fileExists(atPath: dataFileURL(archivo: "RecetasPrevias.plist").path){
+            obtenerRecetasPrevias()
+        }
     }
 
     // MARK: - Table view data source
@@ -71,5 +74,24 @@ class TableViewControllerRecetasPrevias: UITableViewController {
         }
     }
 
+    func dataFileURL(archivo : String) -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent(archivo)
+        print(pathArchivo)
+        return pathArchivo
+    }
 
+    func obtenerRecetasPrevias() {
+        // antes de cargar datos limpio el arreglo listaIngredientes
+            listaRecetasPrevias.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL(archivo: "RecetasPrevias.plist"))
+            listaRecetasPrevias = try PropertyListDecoder().decode([Receta].self, from: data)
+        }
+        catch {
+            print("Error al cargar los datos del archivo de recetas")
+        }
+        tableView.reloadData();
+    }
 }

@@ -37,6 +37,9 @@ class TableViewControllerFavoritas: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
+        if FileManager.default.fileExists(atPath: dataFileURL(archivo: "RecetasFavoritas.plist").path){
+            obtenerRecetasFavoritas()
+        }
     }
 
     // MARK: - Table view data source
@@ -114,4 +117,24 @@ class TableViewControllerFavoritas: UITableViewController {
     }
 
     
+    func dataFileURL(archivo : String) -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent(archivo)
+        print(pathArchivo)
+        return pathArchivo
+    }
+
+    func obtenerRecetasFavoritas() {
+        // antes de cargar datos limpio el arreglo listaIngredientes
+            listaRecetasFavoritas.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL(archivo: "RecetasFavoritas.plist"))
+            listaRecetasFavoritas = try PropertyListDecoder().decode([Receta].self, from: data)
+        }
+        catch {
+            print("Error al cargar los datos del archivo de recetas")
+        }
+        tableView.reloadData();
+    }
 }

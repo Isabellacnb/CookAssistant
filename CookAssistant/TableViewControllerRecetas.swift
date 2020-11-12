@@ -29,6 +29,9 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
         titleView.backgroundColor = .clear
         self.navigationItem.titleView = titleView
 
+        if FileManager.default.fileExists(atPath: dataFileURL(archivo: "Recetas.plist").path){
+            obtenerRecetas()
+        }
     }
 
     // MARK: - Table view data source
@@ -72,6 +75,7 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
             // Delete the row from the data source
             listaRecetas.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            guardarRecetas()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -122,18 +126,79 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
     func agregaReceta(rec: Receta) {
         listaRecetas.append(rec)
         tableView.reloadData()
+        guardarRecetas()
     }
     
     func agregaFavorita(rec: Receta) {
         listaRecetasFavoritas.append(rec)
+        guardarRecetas()
     }
     
     func agregaPrevia(rec: Receta) {
-        listaRecetasPrevias.append(rec)
+        print("HELLO WORLD")
+        var repetida : Bool = false
+        for recetaIndividual in listaRecetasPrevias {
+            if (rec == recetaIndividual){
+                repetida = false
+            }
+        }
+        if !repetida{
+            listaRecetasPrevias.append(rec)
+            guardarRecetas()
+        }
         if listaRecetasPrevias.count > 10 {
             listaRecetasPrevias.remove(at: 0)
         }
     }
     
-
-}
+    // MARK: - data file url ingredientes
+    func dataFileURL(archivo : String) -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent(archivo)
+        print(pathArchivo)
+        return pathArchivo
+    }
+    
+    // MARK: - Métodos para guardar y obtener ingredientes
+    @IBAction func guardarRecetas() {
+        do {
+            let dataReceta = try PropertyListEncoder().encode(listaRecetas)
+            let dataRecetaFavoritas = try PropertyListEncoder().encode(listaRecetasFavoritas)
+            let dataRecetaPrevias = try PropertyListEncoder().encode(listaRecetasPrevias)
+            try dataReceta.write(to: dataFileURL(archivo: "Recetas.plist"))
+            try dataRecetaFavoritas.write(to: dataFileURL(archivo: "RecetasFavoritas.plist"))
+            try dataRecetaPrevias.write(to: dataFileURL(archivo: "RecetasPrevias.plist"))
+        }
+        catch {
+            print("Error al guardar los ingredientes")
+        }
+    }
+    
+    func obtenerRecetas() {
+        // antes de cargar datos limpio el arreglo listaIngredientes
+            listaRecetas.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL(archivo: "Recetas.plist"))
+            listaRecetas = try PropertyListDecoder().decode([Receta].self, from: data)
+        }
+        catch {
+            print("Error al cargar los datos del archivo de recetas")
+        }
+        // despues de cargar los datos al arreglo listaempleados repinta el tableview
+        tableView.reloadData()
+    }
+    
+    
+    func obtenerRecetasPrevias() {
+        // antes de cargar datos limpio el arreglo listaIngredientes
+            listaRecetas.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL(archivo: "RecetasPrevias.plist"))
+            listaRecetas = try PropertyListDecoder().decode([Receta].self, from: data)
+        }
+        catch {
+            print("Error al cargar los datos del archivo de recetas")
+        }
+    }}

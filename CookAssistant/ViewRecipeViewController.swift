@@ -113,11 +113,12 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             btnStarFavorite.imageView?.image = UIImage(systemName: "star.fill")
         }
     }
-    /*
+
     override func viewDidAppear(_ animated: Bool) {
-        delegado.agregaPrevia(rec: unaReceta)
+        
+        //delegado.agregaPrevia(rec: unaReceta)
     }
- */
+ 
     
     @IBAction func unwindEditar(segue: UIStoryboardSegue) {
         lbRecipeName.text = unaReceta.nombre
