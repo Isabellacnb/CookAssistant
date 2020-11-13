@@ -10,7 +10,6 @@ import UIKit
 
 protocol protocolAgregaReceta {
     func agregaReceta(rec : Receta)
-    func agregaFavorita(rec : Receta)
 }
 
 class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate{
@@ -94,14 +93,9 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             present(alerta, animated: true, completion: nil)
         } else if (canEdit == false) {
                 let receta = Receta(nombre: tfNombre.text!, pasos: tvInstruciones.text!, esFav: isFav, imagen: imagen!, ingredientes: listaIngredientes, tiempo: tfTiempo.text!)
-                if isFav {
-                    delegado.agregaReceta(rec : receta)
-                    delegado.agregaFavorita(rec: receta)
-                    navigationController?.popViewController(animated: true)
-                } else {
                     delegado.agregaReceta(rec : receta)
                     navigationController?.popViewController(animated: true)
-                }
+                
         }
        
     }

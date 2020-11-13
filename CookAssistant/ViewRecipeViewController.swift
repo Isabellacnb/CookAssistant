@@ -8,9 +8,7 @@
 
 import UIKit
 
-protocol protocolAgregaPrevia{
-    func agregaPrevia(rec : Receta)
-}
+
 
 class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -23,7 +21,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var esFav : Bool!
     var listaIngredientes = [Ingrediente]()
-    var delegado : protocolAgregaPrevia!
+    var listaRecetasPrevias = [Receta]()
     var edited = false
     var unaReceta : Receta!
     var canEdit = false
@@ -74,7 +72,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         
-        
     }
     
     // MARK: - Métodos de Table View Data Source INGREDIENTES
@@ -115,11 +112,55 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
-        //delegado.agregaPrevia(rec: unaReceta)
+        obtenerRecetasPrevias()
+        var repetida = false
+        for recetaIndividual in listaRecetasPrevias {
+            if (unaReceta.nombre == recetaIndividual.nombre){
+                
+                repetida = true
+            }
+            
+        }
+        if !repetida{
+            listaRecetasPrevias.append(unaReceta)
+            guardarRecetas()
+        }
+        if listaRecetasPrevias.count > 10 {
+            listaRecetasPrevias.remove(at: 0)
+        }
+        guardarRecetas()
     }
- 
     
+    func dataFileURL(archivo : String) -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent(archivo)
+        print(pathArchivo)
+        return pathArchivo
+    }
+    
+    
+    func obtenerRecetasPrevias() {
+        // antes de cargar datos limpio el arreglo listaIngredientes
+            listaRecetasPrevias.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL(archivo: "RecetasPrevias.plist"))
+            listaRecetasPrevias = try PropertyListDecoder().decode([Receta].self, from: data)
+        }
+        catch {
+            print("Error al cargar los datos del archivo de recetas")
+        }
+    }
+    
+    @IBAction func guardarRecetas() {
+        do {
+            let dataRecetaPrevias = try PropertyListEncoder().encode(listaRecetasPrevias)
+            try dataRecetaPrevias.write(to: dataFileURL(archivo: "RecetasPrevias.plist"))
+        }
+        catch {
+            print("Error al guardar las recetas previas")
+        }
+    }
     @IBAction func unwindEditar(segue: UIStoryboardSegue) {
         lbRecipeName.text = unaReceta.nombre
         

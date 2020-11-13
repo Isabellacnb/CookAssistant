@@ -36,12 +36,15 @@ class TableViewControllerFavoritas: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        
-        if FileManager.default.fileExists(atPath: dataFileURL(archivo: "RecetasFavoritas.plist").path){
+        print("I LOADED")
+        if FileManager.default.fileExists(atPath: dataFileURL(archivo: "Recetas.plist").path){
             obtenerRecetasFavoritas()
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        obtenerRecetasFavoritas()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,42 +71,6 @@ class TableViewControllerFavoritas: UITableViewController {
         return cell
     }
     
-/*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
- */
-/*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            listaRecetasFavoritas.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
- */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let temp = listaRecetasFavoritas[fromIndexPath.row]
-        listaRecetasFavoritas[fromIndexPath.row] = listaRecetasFavoritas[to.row]
-        listaRecetasFavoritas[to.row] = temp
-    }
- */
-    
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
- */
 
     // MARK: - Navigation
 
@@ -124,16 +91,23 @@ class TableViewControllerFavoritas: UITableViewController {
         return pathArchivo
     }
 
+
     func obtenerRecetasFavoritas() {
         // antes de cargar datos limpio el arreglo listaIngredientes
             listaRecetasFavoritas.removeAll()
-        
+            var listaRecetas = [Receta]()
         do {
-            let data = try Data.init(contentsOf: dataFileURL(archivo: "RecetasFavoritas.plist"))
-            listaRecetasFavoritas = try PropertyListDecoder().decode([Receta].self, from: data)
+            let data = try Data.init(contentsOf: dataFileURL(archivo: "Recetas.plist"))
+            listaRecetas = try PropertyListDecoder().decode([Receta].self, from: data)
         }
         catch {
             print("Error al cargar los datos del archivo de recetas")
+        }
+        
+        for recetaIndividual in listaRecetas {
+            if recetaIndividual.esFav {
+                listaRecetasFavoritas.append(recetaIndividual)
+            }
         }
         tableView.reloadData();
     }

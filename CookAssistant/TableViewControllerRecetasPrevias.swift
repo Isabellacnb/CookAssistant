@@ -35,6 +35,7 @@ class TableViewControllerRecetasPrevias: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+
         if FileManager.default.fileExists(atPath: dataFileURL(archivo: "RecetasPrevias.plist").path){
             obtenerRecetasPrevias()
         }
@@ -93,5 +94,9 @@ class TableViewControllerRecetasPrevias: UITableViewController {
             print("Error al cargar los datos del archivo de recetas")
         }
         tableView.reloadData();
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        obtenerRecetasPrevias()
     }
 }

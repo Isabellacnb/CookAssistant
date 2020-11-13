@@ -8,12 +8,10 @@
 
 import UIKit
 
-class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, protocolAgregaPrevia {
+class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     
     let defaults = UserDefaults.standard
     var listaRecetas = [Receta]()
-    var listaRecetasFavoritas : [Receta] = []
-    var listaRecetasPrevias : [Receta] = []
     var selectedRow : IndexPath = []
     var recetaModificada : Receta!
     
@@ -110,7 +108,6 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
         } else if segue.identifier == "viewRecipe" {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
-            vistaVer.delegado = self
             vistaVer.unaReceta = listaRecetas[indice.row]
             vistaVer.canEdit = true
             selectedRow = tableView.indexPathForSelectedRow!
@@ -129,27 +126,6 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
         guardarRecetas()
     }
     
-    func agregaFavorita(rec: Receta) {
-        listaRecetasFavoritas.append(rec)
-        guardarRecetas()
-    }
-    
-    func agregaPrevia(rec: Receta) {
-        print("HELLO WORLD")
-        var repetida : Bool = false
-        for recetaIndividual in listaRecetasPrevias {
-            if (rec == recetaIndividual){
-                repetida = false
-            }
-        }
-        if !repetida{
-            listaRecetasPrevias.append(rec)
-            guardarRecetas()
-        }
-        if listaRecetasPrevias.count > 10 {
-            listaRecetasPrevias.remove(at: 0)
-        }
-    }
     
     // MARK: - data file url ingredientes
     func dataFileURL(archivo : String) -> URL {
@@ -163,11 +139,7 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
     @IBAction func guardarRecetas() {
         do {
             let dataReceta = try PropertyListEncoder().encode(listaRecetas)
-            let dataRecetaFavoritas = try PropertyListEncoder().encode(listaRecetasFavoritas)
-            let dataRecetaPrevias = try PropertyListEncoder().encode(listaRecetasPrevias)
             try dataReceta.write(to: dataFileURL(archivo: "Recetas.plist"))
-            try dataRecetaFavoritas.write(to: dataFileURL(archivo: "RecetasFavoritas.plist"))
-            try dataRecetaPrevias.write(to: dataFileURL(archivo: "RecetasPrevias.plist"))
         }
         catch {
             print("Error al guardar los ingredientes")
@@ -201,4 +173,7 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta, p
         catch {
             print("Error al cargar los datos del archivo de recetas")
         }
-    }}
+    }
+    
+    
+}
