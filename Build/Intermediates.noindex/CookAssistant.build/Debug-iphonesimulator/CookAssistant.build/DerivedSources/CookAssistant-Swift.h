@@ -306,6 +306,7 @@ SWIFT_CLASS("_TtC13CookAssistant13SceneDelegate")
 SWIFT_CLASS("_TtC13CookAssistant28TableViewControllerFavoritas")
 @interface TableViewControllerFavoritas : UITableViewController
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -316,10 +317,14 @@ SWIFT_CLASS("_TtC13CookAssistant28TableViewControllerFavoritas")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UISegmentedControl;
 
 SWIFT_CLASS("_TtC13CookAssistant26TableViewControllerRecetas")
 @interface TableViewControllerRecetas : UITableViewController
+@property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified filtro;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
+- (IBAction)filtrarRecetas:(UISegmentedControl * _Nonnull)sender;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -329,6 +334,7 @@ SWIFT_CLASS("_TtC13CookAssistant26TableViewControllerRecetas")
 - (BOOL)tableView:(UITableView * _Nonnull)tableView canMoveRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (IBAction)unwindModificarWithSegue:(UIStoryboardSegue * _Nonnull)segue;
+- (IBAction)guardarRecetas;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -343,6 +349,7 @@ SWIFT_CLASS("_TtC13CookAssistant33TableViewControllerRecetasPrevias")
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (void)viewWillAppear:(BOOL)animated;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -359,6 +366,7 @@ SWIFT_CLASS("_TtC13CookAssistant14ViewController")
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnMeasure;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableViewMeasures;
 - (void)viewDidLoad;
+- (void)viewDidDisappear:(BOOL)animated;
 - (void)dismissKeyboard;
 - (IBAction)agregarIngrediente:(UIButton * _Nonnull)sender;
 - (IBAction)stepperValueChanged:(UIStepper * _Nonnull)sender;
@@ -390,13 +398,14 @@ SWIFT_CLASS("_TtC13CookAssistant24ViewRecipeViewController")
 @property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified tfvInstructions;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lbTime;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified btnEdit;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imgFavStar;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableViewIngrediente;
 - (void)viewDidLoad;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnStarFavorite;
-- (IBAction)favorite:(UIButton * _Nonnull)sender;
+- (void)viewDidAppear:(BOOL)animated;
+- (IBAction)guardarRecetas;
 - (IBAction)unwindEditarWithSegue:(UIStoryboardSegue * _Nonnull)segue;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

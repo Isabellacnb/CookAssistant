@@ -51,7 +51,6 @@ depends-member:
 - ["13CookAssistant11AppDelegateC", "init"]
 - ["13CookAssistant11AppDelegateC", "window"]
 - ["SK", ""]
-- !private ["So15CALayerDelegateP", ""]
 - !private ["So15CALayerDelegateP", "appearance"]
 - !private ["So15CALayerDelegateP", "barTintColor"]
 - ["s7CVarArgP", "ConnectionOptions"]
@@ -222,7 +221,6 @@ depends-member:
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "role"]
 - ["So8NSObjectC", "window"]
-- ["So8NSObjectP", "Bool"]
 - ["So8NSObjectP", "ConnectionOptions"]
 - ["So8NSObjectP", "LaunchOptionsKey"]
 - ["So8NSObjectP", "Set"]
@@ -266,13 +264,10 @@ depends-member:
 - ["ST", ""]
 - ["s16TextOutputStreamP", ""]
 - ["s20TextOutputStreamableP", ""]
-- !private ["So29UIAccessibilityIdentificationP", ""]
 - !private ["So29UIAccessibilityIdentificationP", "appearance"]
 - !private ["So29UIAccessibilityIdentificationP", "barTintColor"]
-- !private ["So12UIAppearanceP", ""]
 - !private ["So12UIAppearanceP", "appearance"]
 - !private ["So12UIAppearanceP", "barTintColor"]
-- !private ["So21UIAppearanceContainerP", ""]
 - !private ["So21UIAppearanceContainerP", "appearance"]
 - !private ["So21UIAppearanceContainerP", "barTintColor"]
 - ["So13UIApplicationC", "LaunchOptionsKey"]
@@ -298,27 +293,21 @@ depends-member:
 - !private ["So16UIBarPositioningP", "appearance"]
 - !private ["So16UIBarPositioningP", "barTintColor"]
 - !private ["So7UIColorC", "init"]
-- !private ["So17UICoordinateSpaceP", ""]
 - !private ["So17UICoordinateSpaceP", "appearance"]
 - !private ["So17UICoordinateSpaceP", "barTintColor"]
-- !private ["So13UIDynamicItemP", ""]
 - !private ["So13UIDynamicItemP", "appearance"]
 - !private ["So13UIDynamicItemP", "barTintColor"]
-- ["So18UIFocusEnvironmentP", ""]
+- !private ["So18UIFocusEnvironmentP", ""]
 - !private ["So18UIFocusEnvironmentP", "appearance"]
 - !private ["So18UIFocusEnvironmentP", "barTintColor"]
-- !private ["So11UIFocusItemP", ""]
 - !private ["So11UIFocusItemP", "appearance"]
 - !private ["So11UIFocusItemP", "barTintColor"]
-- !private ["So20UIFocusItemContainerP", ""]
 - !private ["So20UIFocusItemContainerP", "appearance"]
 - !private ["So20UIFocusItemContainerP", "barTintColor"]
-- !private ["So24UILargeContentViewerItemP", ""]
 - !private ["So24UILargeContentViewerItemP", "appearance"]
 - !private ["So24UILargeContentViewerItemP", "barTintColor"]
 - !private ["So15UINavigationBarC", "appearance"]
 - !private ["So15UINavigationBarC", "barTintColor"]
-- ["So30UIPasteConfigurationSupportingP", "Bool"]
 - ["So30UIPasteConfigurationSupportingP", "ConnectionOptions"]
 - ["So30UIPasteConfigurationSupportingP", "LaunchOptionsKey"]
 - ["So30UIPasteConfigurationSupportingP", "Set"]
@@ -373,7 +362,6 @@ depends-member:
 - !private ["So11UIResponderC", "barTintColor"]
 - ["So11UIResponderC", "init"]
 - ["So11UIResponderC", "window"]
-- ["So30UIResponderStandardEditActionsP", "Bool"]
 - ["So30UIResponderStandardEditActionsP", "ConnectionOptions"]
 - ["So30UIResponderStandardEditActionsP", "LaunchOptionsKey"]
 - ["So30UIResponderStandardEditActionsP", "Set"]
@@ -404,10 +392,8 @@ depends-member:
 - ["So7UISceneC", "ConnectionOptions"]
 - !private ["So20UISceneConfigurationC", "init"]
 - !private ["So14UISceneSessionC", "role"]
-- !private ["So18UITraitEnvironmentP", ""]
 - !private ["So18UITraitEnvironmentP", "appearance"]
 - !private ["So18UITraitEnvironmentP", "barTintColor"]
-- ["So23UIUserActivityRestoringP", "Bool"]
 - ["So23UIUserActivityRestoringP", "ConnectionOptions"]
 - ["So23UIUserActivityRestoringP", "LaunchOptionsKey"]
 - ["So23UIUserActivityRestoringP", "Set"]
@@ -441,7 +427,7 @@ depends-member:
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
 - ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", ""]
 - !private ["s33_ExpressibleByBuiltinFloatLiteralP", "init"]
-- ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", ""]
 - !private ["s26_ExpressibleByColorLiteralP", "init"]
@@ -528,7 +514,7 @@ depends-nominal:
 - !private "So7UIColorC"
 - !private "So17UICoordinateSpaceP"
 - !private "So13UIDynamicItemP"
-- "So18UIFocusEnvironmentP"
+- !private "So18UIFocusEnvironmentP"
 - !private "So11UIFocusItemP"
 - !private "So20UIFocusItemContainerP"
 - !private "So24UILargeContentViewerItemP"
@@ -545,7 +531,7 @@ depends-nominal:
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s33_ExpressibleByBuiltinFloatLiteralP"
-- "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s26_ExpressibleByColorLiteralP"

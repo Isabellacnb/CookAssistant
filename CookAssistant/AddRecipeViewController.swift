@@ -29,15 +29,17 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     var nombre : String!
     var listaIngredientes : [Ingrediente] = []
-    var isFav : Bool = false
+    var isFav : Bool!
     var pasos : String!
     var imagen = UIImage(named: "defaultImg")
     var tiempo : String!
     var canEdit = false
     var idMeasure = 0
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewdidload")
         tableViewMeasures.delegate = self
         tableViewMeasures.dataSource = self
         // Agregar logo al navigation bar
@@ -54,7 +56,19 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             tfTiempo.text = tiempo
             tfNombre.text = nombre
             tvInstruciones.text = pasos
+            if  isFav {
+                favoriteStar.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            } else {
+                favoriteStar.setImage(UIImage(systemName: "star"), for: .normal)
+            }
+        } else {
+            isFav = false
         }
+        
+        if (imagen != UIImage(named: "defaultImg")) {
+            imageLoaded.isHidden = false
+        }
+        
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)         // Do any additional setup after loading the view.
         tfCantidad.text = "0"
@@ -104,14 +118,11 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         navigationController?.popViewController(animated: true)
     }
     
-    
-    
-    
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "unwindEditar" {
-            print("UnwindEditar")
             let vista = segue.destination as! ViewRecipeViewController
             let receta = Receta(nombre: tfNombre.text!, pasos: tvInstruciones.text!, esFav: isFav, imagen: imagen!, ingredientes: listaIngredientes, tiempo: tfTiempo.text!)
             vista.unaReceta = receta

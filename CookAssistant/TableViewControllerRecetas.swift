@@ -72,13 +72,14 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
         
         // Agregar solo las listas que tengan ingredientes disponibles
         for k in (0..<listaRecetas.count) {
-            var ingredientes = listaRecetas[k].ingredientes
+            let ingredientes = listaRecetas[k].ingredientes
+            var ingreFound = 0
             
             for i in (0..<ingredientes.count) {
                 let ingre = ingredientes[i]
                 for j in (0..<listaIngredientesDisp.count) {
                     if(ingredienteValido(ingre, listaIngredientesDisp[j])) {
-                        ingredientes.remove(at: i)
+                        ingreFound = ingreFound + 1
                     }
                 }
             }
@@ -92,7 +93,7 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
             }
             
             // Si la lista de ingredientes esta vacia, se tiene todos los ingredientes para la receta k
-            if(ingredientes.isEmpty && !repetida) {
+            if(ingredientes.count == ingreFound && !repetida) {
                 listaRecetasDisp.append(listaRecetas[k])
             }
         }
@@ -147,6 +148,8 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
         if (listaRecetasDisp[indexPath.row].esFav) {
             let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .black, scale: .small)
             cell.imageView?.image = UIImage(systemName: "star.fill", withConfiguration: symbolConfig)
+        } else {
+            cell.imageView?.image = nil
         }
         
         return cell

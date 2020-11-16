@@ -7,52 +7,129 @@ provides-member:
 - ["13CookAssistant11IngredienteC", ""]
 provides-dynamic-lookup:
 - "cantidad"
+- "encode"
 - "medida"
 - "nombre"
 depends-top-level:
+- "=="
 - "AssignmentPrecedence"
+- "Codable"
+- !private "FloatLiteralType"
 - "Ingrediente"
 - "Int"
+- !private "IntegerLiteralType"
 - "NSObject"
 - "String"
+- !private "StringLiteralType"
+- !private "~="
 depends-member:
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "cantidad"]
-- !private ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "encode"]
+- ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "medida"]
 - !private ["s7CVarArgP", "nombre"]
+- ["s9CodingKeyP", "=="]
+- !private ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_rawHashValue"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- ["s9CodingKeyP", "stringValue"]
+- ["s28CustomDebugStringConvertibleP", "=="]
 - ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "cantidad"]
-- !private ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "encode"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
 - !private ["s28CustomDebugStringConvertibleP", "medida"]
 - !private ["s28CustomDebugStringConvertibleP", "nombre"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- ["s23CustomStringConvertibleP", "=="]
 - ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_rawHashValue"]
 - !private ["s23CustomStringConvertibleP", "cantidad"]
-- !private ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "encode"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
 - !private ["s23CustomStringConvertibleP", "medida"]
 - !private ["s23CustomStringConvertibleP", "nombre"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- ["Se", ""]
+- !private ["Se", "cantidad"]
+- ["Se", "encode"]
+- ["Se", "init"]
+- !private ["Se", "medida"]
+- !private ["Se", "nombre"]
+- !private ["s7DecoderP", "container"]
+- ["SE", ""]
+- !private ["SE", "cantidad"]
+- ["SE", "encode"]
+- ["SE", "init"]
+- !private ["SE", "medida"]
+- !private ["SE", "nombre"]
+- !private ["s7EncoderP", "container"]
+- ["SQ", "=="]
 - ["SQ", ""]
+- ["SQ", "_rawHashValue"]
 - !private ["SQ", "cantidad"]
-- !private ["SQ", "init"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
 - !private ["SQ", "medida"]
 - !private ["SQ", "nombre"]
+- ["SQ", "stringValue"]
+- ["SH", "=="]
 - ["SH", ""]
+- ["SH", "_rawHashValue"]
 - !private ["SH", "cantidad"]
-- !private ["SH", "init"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "intValue"]
 - !private ["SH", "medida"]
 - !private ["SH", "nombre"]
+- ["SH", "stringValue"]
+- !private ["s6HasherV", "combine"]
+- ["13CookAssistant11IngredienteC", "CodingKeys"]
 - ["13CookAssistant11IngredienteC", "Int"]
 - ["13CookAssistant11IngredienteC", "String"]
 - ["13CookAssistant11IngredienteC", ""]
 - ["13CookAssistant11IngredienteC", "cantidad"]
 - ["13CookAssistant11IngredienteC", "deinit"]
+- ["13CookAssistant11IngredienteC", "encode"]
 - ["13CookAssistant11IngredienteC", "init"]
 - ["13CookAssistant11IngredienteC", "medida"]
 - ["13CookAssistant11IngredienteC", "nombre"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- ["So8NSCodingP", ""]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "String"]
 - ["So8NSObjectC", ""]
 - ["So8NSObjectC", "cantidad"]
+- ["So8NSObjectC", "encode"]
 - ["So8NSObjectC", "init"]
 - ["So8NSObjectC", "medida"]
 - ["So8NSObjectC", "nombre"]
@@ -60,30 +137,46 @@ depends-member:
 - ["So8NSObjectP", "String"]
 - ["So8NSObjectP", ""]
 - ["So8NSObjectP", "cantidad"]
+- ["So8NSObjectP", "encode"]
 - ["So8NSObjectP", "init"]
 - ["So8NSObjectP", "medida"]
 - ["So8NSObjectP", "nombre"]
+- ["So18UIFocusEnvironmentP", ""]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cantidad"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "encode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "medida"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "nombre"]
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "cantidad"]
-- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "encode"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "medida"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "nombre"]
 depends-nominal:
 - "s7CVarArgP"
+- "s9CodingKeyP"
 - "s28CustomDebugStringConvertibleP"
 - "s23CustomStringConvertibleP"
+- "Se"
+- !private "s7DecoderP"
+- "SE"
+- !private "s7EncoderP"
 - "SQ"
 - "SH"
+- !private "s6HasherV"
 - "13CookAssistant11IngredienteC"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "So8NSCodingP"
 - "So8NSObjectC"
 - "So8NSObjectP"
+- "So18UIFocusEnvironmentP"
 - !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - "10Foundation27_KeyValueCodingAndObservingP"
@@ -118,4 +211,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "33abe67ecf51e3d6fca9005efc8002d4"
+interface-hash: "5cdd77e67bef79f65bc2c9de71ce9061"

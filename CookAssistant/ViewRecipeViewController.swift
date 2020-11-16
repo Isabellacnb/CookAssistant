@@ -18,7 +18,9 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tfvInstructions: UITextView!
     @IBOutlet weak var lbTime: UILabel!
     @IBOutlet weak var btnEdit: UIBarButtonItem!
+    @IBOutlet weak var imgFavStar: UIImageView!
     
+    var time : String!
     var esFav : Bool!
     var listaIngredientes = [Ingrediente]()
     var listaRecetasPrevias = [Receta]()
@@ -52,14 +54,14 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         // Guardar instrucciones de receta en label
         tfvInstructions.text = unaReceta.pasos
         lbTime.text = unaReceta.tiempo + " Minutes"
+        time = unaReceta.tiempo
         // Poner imagen a receta
         imgRecipe.image = unaReceta.imagen
         esFav = unaReceta.esFav
         if esFav {
-            btnStarFavorite.imageView?.image = UIImage(systemName: "star.fill")
+            imgFavStar.image = UIImage(systemName: "star.fill")
         } else {
-            esFav = true
-            btnStarFavorite.imageView?.image = UIImage(systemName: "star")
+            imgFavStar.image = UIImage(systemName: "star")
         }
         
         // Verificar si se esta viendo receta desde Favoritos o Recetas
@@ -70,7 +72,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             self.navigationItem.leftBarButtonItem = nil
             
         }
-        
         
     }
     
@@ -92,6 +93,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         let strMedida = valorMedida as! String
         let detalle = String(listaIngredientes[indexPath.row].cantidad) + " " + strMedida
         celda.detailTextLabel?.text = detalle
+        celda.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
         return celda
     }
     
@@ -100,16 +102,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     //Se activa cuando le dan favorite, para quitar el favorite solamente le vuelven a picar
-    @IBOutlet weak var btnStarFavorite: UIButton!
-    @IBAction func favorite(_ sender: UIButton) {
-        if unaReceta.esFav {
-            unaReceta.esFav = false
-            btnStarFavorite.imageView?.image = UIImage(systemName: "star")
-        } else {
-            unaReceta.esFav = true
-            btnStarFavorite.imageView?.image = UIImage(systemName: "star.fill")
-        }
-    }
+
 
     override func viewDidAppear(_ animated: Bool) {
         obtenerRecetasPrevias()
@@ -134,7 +127,6 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     func dataFileURL(archivo : String) -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent(archivo)
-        print(pathArchivo)
         return pathArchivo
     }
     
@@ -171,15 +163,17 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // Guardar instrucciones de receta en label
         tfvInstructions.text = unaReceta.pasos
-        lbTime.text = unaReceta.tiempo
+        lbTime.text = unaReceta.tiempo + " Minutes"
+        time = unaReceta.tiempo
+        esFav = unaReceta.esFav
         // Poner imagen a receta
         imgRecipe.image = unaReceta.imagen
-        if unaReceta.esFav {
-            btnStarFavorite.imageView?.image = UIImage(systemName: "star.fill")
+        if esFav {
+            imgFavStar.image = UIImage(systemName: "star.fill")
         } else {
-            unaReceta.esFav = true
-            btnStarFavorite.imageView?.image = UIImage(systemName: "star")
+            imgFavStar.image = UIImage(systemName: "star")
         }
+        tableViewIngrediente.reloadData()
         
         // Verificar si se esta viendo receta desde Favoritos o Recetas
         // Si viene de favoritas no se puede ver la opcion de editar
@@ -200,14 +194,14 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             let editarR = segue.destination as! AddRecipeViewController
             editarR.nombre = lbRecipeName.text
             editarR.listaIngredientes = listaIngredientes
-            editarR.isFav = unaReceta.esFav
+            editarR.isFav = esFav
             editarR.pasos = tfvInstructions.text
-            editarR.tiempo = lbTime.text
+            editarR.tiempo = time
             editarR.imagen = imgRecipe.image
             editarR.canEdit = true
         } else if segue.identifier == "unwindMod" {
             let modificarVista = segue.destination as! TableViewControllerRecetas
-            let recetaNueva = Receta(nombre: lbRecipeName.text!, pasos: tfvInstructions.text!, esFav: esFav!, imagen: imgRecipe.image!, ingredientes: listaIngredientes, tiempo: lbTime.text!)
+            let recetaNueva = Receta(nombre: lbRecipeName.text!, pasos: tfvInstructions.text!, esFav: esFav, imagen: imgRecipe.image!, ingredientes: listaIngredientes, tiempo: time!)
             modificarVista.recetaModificada = recetaNueva
         }
 

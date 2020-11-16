@@ -460,7 +460,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "addImage"]
 - !private ["s28CustomDebugStringConvertibleP", "addIngredient"]
 - !private ["s28CustomDebugStringConvertibleP", "addSubview"]
-- !private ["s28CustomDebugStringConvertibleP", "agregaFavorita"]
 - !private ["s28CustomDebugStringConvertibleP", "agregaReceta"]
 - !private ["s28CustomDebugStringConvertibleP", "append"]
 - !private ["s28CustomDebugStringConvertibleP", "arrayMeasures"]
@@ -568,7 +567,6 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "viewForZoomingInScrollView"]
 - !private ["s28CustomDebugStringConvertibleP", "white"]
 - !private ["s17CustomReflectableP", "addGestureRecognizer"]
-- !private ["s17CustomReflectableP", "agregaFavorita"]
 - !private ["s17CustomReflectableP", "agregaReceta"]
 - !private ["s17CustomReflectableP", "append"]
 - !private ["s17CustomReflectableP", "backgroundColor"]
@@ -732,7 +730,6 @@ depends-member:
 - !private ["10Foundation12DataProtocolP", "remove"]
 - !private ["10Foundation12DataProtocolP", "subscript"]
 - !private ["Se", "addGestureRecognizer"]
-- !private ["Se", "agregaFavorita"]
 - !private ["Se", "agregaReceta"]
 - !private ["Se", "append"]
 - !private ["Se", "backgroundColor"]
@@ -763,7 +760,6 @@ depends-member:
 - !private ["So27UITableViewCellEditingStyleV", "delete"]
 - !private ["So27UITableViewCellEditingStyleV", "insert"]
 - !private ["SE", "addGestureRecognizer"]
-- !private ["SE", "agregaFavorita"]
 - !private ["SE", "agregaReceta"]
 - !private ["SE", "append"]
 - !private ["SE", "backgroundColor"]
@@ -815,7 +811,6 @@ depends-member:
 - !private ["SQ", "addImage"]
 - !private ["SQ", "addIngredient"]
 - !private ["SQ", "addSubview"]
-- !private ["SQ", "agregaFavorita"]
 - !private ["SQ", "agregaReceta"]
 - !private ["SQ", "alert"]
 - !private ["SQ", "append"]
@@ -952,7 +947,6 @@ depends-member:
 - !private ["s27ExpressibleByIntegerLiteralP", ""]
 - !private ["s27ExpressibleByIntegerLiteralP", "init"]
 - !private ["s23ExpressibleByNilLiteralP", "addGestureRecognizer"]
-- !private ["s23ExpressibleByNilLiteralP", "agregaFavorita"]
 - !private ["s23ExpressibleByNilLiteralP", "agregaReceta"]
 - !private ["s23ExpressibleByNilLiteralP", "backgroundColor"]
 - !private ["s23ExpressibleByNilLiteralP", "clear"]
@@ -1005,7 +999,6 @@ depends-member:
 - !private ["SH", "addImage"]
 - !private ["SH", "addIngredient"]
 - !private ["SH", "addSubview"]
-- !private ["SH", "agregaFavorita"]
 - !private ["SH", "agregaReceta"]
 - !private ["SH", "alert"]
 - !private ["SH", "append"]
@@ -1765,7 +1758,6 @@ depends-member:
 - !private ["Sj", "init"]
 - !private ["s9OptionSetP", "normal"]
 - !private ["Sq", "addGestureRecognizer"]
-- !private ["Sq", "agregaFavorita"]
 - !private ["Sq", "agregaReceta"]
 - !private ["Sq", "backgroundColor"]
 - !private ["Sq", "clear"]
@@ -1811,6 +1803,7 @@ depends-member:
 - !private ["SY", "originalImage"]
 - !private ["SY", "photoLibrary"]
 - !private ["SY", "scaleAspectFit"]
+- !private ["13CookAssistant6RecetaC", ""]
 - !private ["13CookAssistant6RecetaC", "init"]
 - !private ["10Foundation20ReferenceConvertibleP", "row"]
 - !private ["So23UITableViewRowAnimationV", "fade"]
@@ -4172,7 +4165,6 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "white"]
 - !private ["s21_ObjectiveCBridgeableP", ""]
 - !private ["s21_ObjectiveCBridgeableP", "addGestureRecognizer"]
-- !private ["s21_ObjectiveCBridgeableP", "agregaFavorita"]
 - !private ["s21_ObjectiveCBridgeableP", "agregaReceta"]
 - !private ["s21_ObjectiveCBridgeableP", "append"]
 - !private ["s21_ObjectiveCBridgeableP", "backgroundColor"]
@@ -4223,7 +4215,6 @@ depends-member:
 - !private ["s38__DefaultCustomPlaygroundQuickLookableP", "textLabel"]
 - !private ["s38__DefaultCustomPlaygroundQuickLookableP", "value"]
 - ["13CookAssistant20protocolAgregaRecetaP", "Receta"]
-- ["13CookAssistant20protocolAgregaRecetaP", "agregaFavorita"]
 - ["13CookAssistant20protocolAgregaRecetaP", "agregaReceta"]
 depends-nominal:
 - "13CookAssistant23AddRecipeViewControllerC"
@@ -4421,4 +4412,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "5253aa5b3a971659daec33cfb1fee5f7"
+interface-hash: "195b27bc53eaaec545e5dfe8f6d60012"
