@@ -25,7 +25,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var btnSelectMeasure: UIButton!
     @IBOutlet weak var tableViewMeasures: UITableView!
     
-    var arrayMeasures : NSMutableArray = ["tsp", "tbsp", "oz", "cups", "pints", "quarts", "gal"]
+    var arrayMeasures : NSMutableArray = ["tsp", "tbsp", "cups", "gal", "units"]
     
     var nombre : String!
     var listaIngredientes : [Ingrediente] = []
@@ -281,19 +281,14 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
                     idMeasure = 1
                 } else if selectedItem == "tbsp"{
                     idMeasure = 2
-                } else if selectedItem == "oz" {
-                    idMeasure = 3
                 } else if selectedItem == "cups" {
-                    idMeasure = 4
-                } else if selectedItem == "pints" {
-                    idMeasure = 5
-                } else if selectedItem == "quarts" {
-                    idMeasure = 6
+                    idMeasure = 3
                 } else if selectedItem == "gal" {
-                    idMeasure = 7
+                    idMeasure = 4
+                } else if selectedItem == "units" {
+                    idMeasure = 5
                 }
                 tableViewMeasures?.isHidden = true
-
             }
     }
 

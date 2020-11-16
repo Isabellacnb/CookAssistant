@@ -3,13 +3,16 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "TableViewControllerRecetas.tableView(_:cellForRowAt:):TableViewControllerRecetas.swift">
+      </ContextState>
+      <ContextState
          contextName = "TableViewControllerRecetas.obtenerIngredientes():TableViewControllerRecetas.swift">
       </ContextState>
       <ContextState
-         contextName = "TableViewControllerRecetas.obtenerRecetasDisp():TableViewControllerRecetas.swift">
+         contextName = "TableViewControllerRecetas.ingredienteValido(_:_:):TableViewControllerRecetas.swift">
          <PersistentStrings>
             <PersistentString
-               value = "listaRecetas[k]">
+               value = "necesario.nombre.caseInsensitiveCompare(disponible.nombre)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -28,7 +31,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TableViewControllerRecetas.tableView(_:cellForRowAt:):TableViewControllerRecetas.swift">
+         contextName = "TableViewControllerRecetas.obtenerRecetasDisp():TableViewControllerRecetas.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "listaRecetas[k]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

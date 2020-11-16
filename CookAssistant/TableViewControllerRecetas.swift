@@ -57,18 +57,30 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     
     // Funcion aux para checar si el ingrediente disponible es suficiente para el enecesario
     func ingredienteValido(_ necesario: Ingrediente, _ disponible:Ingrediente) -> Bool {
-        if( necesario.nombre == disponible.nombre &&
+        print(necesario.nombre + " " + disponible.nombre)
+        if( necesario.nombre.caseInsensitiveCompare(disponible.nombre) == ComparisonResult.orderedSame &&
             necesario.cantidad <= disponible.cantidad &&
             necesario.medida == disponible.medida) {
             return true
         }
-        
         return false;
     }
     
+    func mapIngreList(lista: [Ingrediente]) -> [String : Ingrediente] {
+        var map: [String : Ingrediente] = [:]
+        
+        for i in (0..<lista.count) {
+            map[lista[i].nombre.lowercased()] = lista[i]
+        }
+        
+        return map
+    }
+    
+    // Funcion que llena la lista de listaRecetasDisp con las recetas disponibles
     func obtenerRecetasDisp() {
         // Limpiar las recetas disponibles
         listaRecetasDisp.removeAll()
+        let ingreDispMap = mapIngreList(lista: listaIngredientesDisp)
         
         // Agregar solo las listas que tengan ingredientes disponibles
         for k in (0..<listaRecetas.count) {
@@ -77,10 +89,9 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
             
             for i in (0..<ingredientes.count) {
                 let ingre = ingredientes[i]
-                for j in (0..<listaIngredientesDisp.count) {
-                    if(ingredienteValido(ingre, listaIngredientesDisp[j])) {
-                        ingreFound = ingreFound + 1
-                    }
+                
+                if(ingreDispMap[ingre.nombre.lowercased()] != nil && ingredienteValido(ingre, ingreDispMap[ingre.nombre.lowercased()]!)) {
+                    ingreFound = ingreFound + 1
                 }
             }
             

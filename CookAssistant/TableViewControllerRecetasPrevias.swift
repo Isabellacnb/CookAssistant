@@ -17,7 +17,7 @@ class customTableViewCell2: UITableViewCell{
 
 class TableViewControllerRecetasPrevias: UITableViewController {
 
-    var listaRecetasPrevias = [Receta(nombre: "Cereal con leche", pasos: "Aqui van las instrucciones para servir el cereal y luego la leche en un bowl y asi poder desayunar", esFav: true, imagen: UIImage(named: "cereal")!, ingredientes: [Ingrediente(nombre: "Leche", cantidad: 1, medida: 3), Ingrediente(nombre: "Cereal", cantidad: 2, medida: 3)], tiempo: "120")]
+    var listaRecetasPrevias = [Receta]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,7 +19,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
     @IBOutlet weak var btnMeasure: UIButton!
     @IBOutlet weak var tableViewMeasures: UITableView!
     
-    var arrayMeasures : NSMutableArray = ["tsp", "tbsp", "oz", "cups", "pints", "qrts", "gal"]
+    var arrayMeasures : NSMutableArray = ["tsp", "tbsp", "cups", "gal", "units"]
 
     var idMeasure = 0
     var listaIngredientes : [Ingrediente] = []
@@ -228,16 +228,12 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
                     idMeasure = 1
                 } else if selectedItem == "tbsp"{
                     idMeasure = 2
-                } else if selectedItem == "oz" {
-                    idMeasure = 3
                 } else if selectedItem == "cups" {
-                    idMeasure = 4
-                } else if selectedItem == "pints" {
-                    idMeasure = 5
-                } else if selectedItem == "quarts" {
-                    idMeasure = 6
+                    idMeasure = 3
                 } else if selectedItem == "gal" {
-                    idMeasure = 7
+                    idMeasure = 4
+                } else if selectedItem == "units" {
+                    idMeasure = 5
                 }
                 tableViewMeasures?.isHidden = true
                 btnMeasure.setTitle(selectedItem, for: UIControl.State.normal)
