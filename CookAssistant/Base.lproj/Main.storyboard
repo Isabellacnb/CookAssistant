@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -971,12 +971,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="HfK-Eb-BtH">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Aeu-tp-vWT">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="665-Ly-gmz">
+                                <rect key="frame" x="16" y="5.5" width="183" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Disponibles"/>
+                                    <segment title="Todas"/>
+                                </segments>
+                                <connections>
+                                    <action selector="filtrarRecetas:" destination="jye-oN-GX5" eventType="valueChanged" id="GnK-rP-1Ro"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="cPN-WE-lpS">
                             <connections>
                                 <segue destination="igx-iB-Z10" kind="show" identifier="addRecipe" id="FZo-PN-xLW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="filtro" destination="665-Ly-gmz" id="eZ8-lK-ltk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXY-I4-MFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1248,7 +1264,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="klu-EQ-qIH"/>
-        <segue reference="b4k-ge-fH9"/>
+        <segue reference="jDg-oh-5AA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>

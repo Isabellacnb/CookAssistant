@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TableViewControllerRecetas.obtenerIngredientes():TableViewControllerRecetas.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TableViewControllerRecetas.obtenerRecetasDisp():TableViewControllerRecetas.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "listaRecetas[k]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TableViewControllerRecetas.viewDidAppear(_:):TableViewControllerRecetas.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TableViewControllerRecetas.unwindModificar(segue:):TableViewControllerRecetas.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ViewRecipeViewController.prepare(for:sender:):ViewRecipeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "esFav">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TableViewControllerRecetas.tableView(_:cellForRowAt:):TableViewControllerRecetas.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

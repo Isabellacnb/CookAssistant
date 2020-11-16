@@ -14,6 +14,10 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     var listaRecetas = [Receta]()
     var selectedRow : IndexPath = []
     var recetaModificada : Receta!
+    var listaIngredientesDisp = [Ingrediente]()
+    var listaRecetasDisp = [Receta]()
+    
+    @IBOutlet weak var filtro: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +34,99 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
         if FileManager.default.fileExists(atPath: dataFileURL(archivo: "Recetas.plist").path){
             obtenerRecetas()
         }
+        if FileManager.default.fileExists(atPath: dataFileURL(archivo: "Ingredientes.plist").path) {
+            obtenerIngredientes()
+        }
+        obtenerRecetasDisp()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Cargar ingredientes en caso de tener nuevos para filtrar
+        if FileManager.default.fileExists(atPath: dataFileURL(archivo: "Ingredientes.plist").path) {
+            obtenerIngredientes()
+        }
+        
+        obtenerRecetasDisp()
+        
+        if(filtro.selectedSegmentIndex == 1) {
+            listaRecetasDisp = listaRecetas
+        }
+        
+        tableView.reloadData()
+    }
+    
+    // Funcion aux para checar si el ingrediente disponible es suficiente para el enecesario
+    func ingredienteValido(_ necesario: Ingrediente, _ disponible:Ingrediente) -> Bool {
+        if( necesario.nombre == disponible.nombre &&
+            necesario.cantidad <= disponible.cantidad &&
+            necesario.medida == disponible.medida) {
+            return true
+        }
+        
+        return false;
+    }
+    
+    func obtenerRecetasDisp() {
+        // Limpiar las recetas disponibles
+        listaRecetasDisp.removeAll()
+        
+        // Agregar solo las listas que tengan ingredientes disponibles
+        for k in (0..<listaRecetas.count) {
+            var ingredientes = listaRecetas[k].ingredientes
+            
+            for i in (0..<ingredientes.count) {
+                let ingre = ingredientes[i]
+                for j in (0..<listaIngredientesDisp.count) {
+                    if(ingredienteValido(ingre, listaIngredientesDisp[j])) {
+                        ingredientes.remove(at: i)
+                    }
+                }
+            }
+            
+            // Checar si la receta es unica (no tenemos otra con el mismo nombre)
+            var repetida: Bool = false
+            for receta in listaRecetasDisp {
+                if(listaRecetas[k].nombre == receta.nombre) {
+                    repetida = true
+                }
+            }
+            
+            // Si la lista de ingredientes esta vacia, se tiene todos los ingredientes para la receta k
+            if(ingredientes.isEmpty && !repetida) {
+                listaRecetasDisp.append(listaRecetas[k])
+            }
+        }
+    }
+    
+    func obtenerIngredientes() {
+        // antes de cargar datos limpio el arreglo listaIngredientes
+        listaIngredientesDisp.removeAll()
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileURL(archivo: "Ingredientes.plist"))
+            listaIngredientesDisp = try PropertyListDecoder().decode([Ingrediente].self, from: data)
+        }
+        catch {
+            print("Error al cargar los datos del archivo de ingredientes")
+        }
+    }
+    
+    @IBAction func filtrarRecetas(_ sender: UISegmentedControl) {
+        // Disponibles seleccionado
+        if sender.selectedSegmentIndex == 0 {
+            listaRecetasDisp.removeAll()
+            obtenerRecetasDisp()
+            tableView.reloadData()
+        }
+        // Todas seleccionado
+        else {
+            listaRecetasDisp.removeAll()
+            obtenerRecetas()
+            listaRecetasDisp = listaRecetas
+            tableView.reloadData()
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,19 +136,19 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listaRecetas.count
+        return listaRecetasDisp.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celdaRecetas", for: indexPath)
-
-        cell.textLabel?.text = listaRecetas[indexPath.row].nombre
-        if (listaRecetas[indexPath.row].esFav == true) {
+        
+        cell.textLabel?.text = listaRecetasDisp[indexPath.row].nombre
+        if (listaRecetasDisp[indexPath.row].esFav) {
             let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .black, scale: .small)
             cell.imageView?.image = UIImage(systemName: "star.fill", withConfiguration: symbolConfig)
         }
-
+        
         return cell
     }
     
@@ -71,7 +166,16 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            listaRecetas.remove(at: indexPath.row)
+            let recetaBorrada = listaRecetasDisp[indexPath.row]
+            for i in 0..<listaRecetas.count {
+                let receta = listaRecetas[i]
+                
+                if(receta == recetaBorrada) {
+                    listaRecetas.remove(at: i)
+                    break
+                }
+            }
+            listaRecetasDisp.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             guardarRecetas()
         } else if editingStyle == .insert {
@@ -83,9 +187,9 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let tmp = listaRecetas[fromIndexPath.row]
-        listaRecetas[fromIndexPath.row] = listaRecetas[to.row]
-        listaRecetas[to.row] = tmp
+        let tmp = listaRecetasDisp[fromIndexPath.row]
+        listaRecetasDisp[fromIndexPath.row] = listaRecetasDisp[to.row]
+        listaRecetasDisp[to.row] = tmp
 
     }
     
@@ -108,14 +212,22 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
         } else if segue.identifier == "viewRecipe" {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
-            vistaVer.unaReceta = listaRecetas[indice.row]
+            vistaVer.unaReceta = listaRecetasDisp[indice.row]
             vistaVer.canEdit = true
             selectedRow = tableView.indexPathForSelectedRow!
         }
     }
     
     @IBAction func unwindModificar(segue: UIStoryboardSegue) {
-        listaRecetas[selectedRow.row] = recetaModificada
+        let recetaNueva = listaRecetasDisp[selectedRow.row]
+        for i in 0..<listaRecetas.count {
+            if(recetaNueva == listaRecetas[i]) {
+                listaRecetas[i] = recetaModificada
+            }
+        }
+        
+        listaRecetasDisp[selectedRow.row] = recetaModificada
+        guardarRecetas()
         tableView.reloadData()
     }
     

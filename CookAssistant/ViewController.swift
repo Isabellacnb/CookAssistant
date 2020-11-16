@@ -66,10 +66,10 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
         // UIApplication.shared se refiere a la aplicacion
         let app = UIApplication.shared
         
-        // Me registro en el centro de notificaciones para que se llame al método guardarEmpleados cuando la aplicación se vaya al background
+        // Me registro en el centro de notificaciones para que se llame al método guardarIngredientes cuando la aplicación se vaya al background
         NotificationCenter.default.addObserver(self, selector: #selector(guardarIngredientes), name: UIApplication.didEnterBackgroundNotification, object: app)
         
-        // Creo un objeto arreglo vacío para inicializar la lista de empleados
+        // Creo un objeto arreglo vacío para inicializar la lista de ingredientes
         listaIngredientes = []
         
         // Si existe el archivo significa que ya se había corrido antes este programa y hay un archivo ya grabado
@@ -77,6 +77,10 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
             obtenerIngredientes()
         }
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        guardarIngredientes();
     }
     
     @objc func dismissKeyboard() {
