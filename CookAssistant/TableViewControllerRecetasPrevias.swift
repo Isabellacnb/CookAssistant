@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Crea una custom table view para cargar las recetas previas de una manera default
 class customTableViewCell2: UITableViewCell{
     
     @IBOutlet weak var imgFotoReceta: UIImageView!
@@ -36,6 +37,7 @@ class TableViewControllerRecetasPrevias: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 
+        //Si un archivo de RecetasPrevias existe se cargan los datos
         if FileManager.default.fileExists(atPath: dataFileURL(archivo: "RecetasPrevias.plist").path){
             obtenerRecetasPrevias()
         }
@@ -53,11 +55,14 @@ class TableViewControllerRecetasPrevias: UITableViewController {
         return listaRecetasPrevias.count
     }
 
+    //Set row height a 110
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //La custom cell mostrara una imagen, el nombre y el tiempo que toma cocinar
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! customTableViewCell2
 
         cell.lbNombreReceta.text = listaRecetasPrevias[indexPath.row].nombre
@@ -68,6 +73,7 @@ class TableViewControllerRecetasPrevias: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Envia los datos a el table view controller
         if segue.identifier == "viewRecipeRec" {
             let vistaVer = segue.destination as! ViewRecipeViewController
             let indice = tableView.indexPathForSelectedRow!
@@ -75,15 +81,15 @@ class TableViewControllerRecetasPrevias: UITableViewController {
         }
     }
 
+    //Carga el datafile
     func dataFileURL(archivo : String) -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent(archivo)
-        print(pathArchivo)
         return pathArchivo
     }
 
     func obtenerRecetasPrevias() {
-        // antes de cargar datos limpio el arreglo listaIngredientes
+        // antes de cargar datos limpio el arreglo listas de recetas previas
             listaRecetasPrevias.removeAll()
         
         do {
@@ -97,6 +103,7 @@ class TableViewControllerRecetasPrevias: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //Una vez que se vuelva a cargar se cargan las recetas nuevamente
         obtenerRecetasPrevias()
     }
 }

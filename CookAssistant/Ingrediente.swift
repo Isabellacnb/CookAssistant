@@ -9,10 +9,12 @@
 import UIKit
 
 class Ingrediente: NSObject, Codable {
+    //Declarar las variables
     var nombre : String
     var cantidad : Int
     var medida : Int
-        
+    
+    //Inicializar las variables
     init (nombre : String, cantidad: Int, medida: Int) {
         self.nombre = nombre
         self.cantidad = cantidad

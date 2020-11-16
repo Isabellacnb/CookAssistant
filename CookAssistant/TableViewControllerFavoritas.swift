@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Crea una custom table view para cargar las recetas favoritas de una manera default
 class customTableViewCell: UITableViewCell{
     
     @IBOutlet weak var imgFotoReceta: UIImageView!
@@ -32,16 +33,13 @@ class TableViewControllerFavoritas: UITableViewController {
         titleView.backgroundColor = .clear
         self.navigationItem.titleView = titleView
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        print("I LOADED")
+        //Si un archivo de RecetasPrevias existe se cargan los datos
         if FileManager.default.fileExists(atPath: dataFileURL(archivo: "Recetas.plist").path){
             obtenerRecetasFavoritas()
         }
     }
 
+    //Una vez que se vuelva a cargar se cargan las recetas nuevamente
     override func viewWillAppear(_ animated: Bool) {
         obtenerRecetasFavoritas()
     }
@@ -74,6 +72,7 @@ class TableViewControllerFavoritas: UITableViewController {
 
     // MARK: - Navigation
 
+    //Prepara los datos para enviarlos a el view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewRecipeFav" {
             let vistaVer = segue.destination as! ViewRecipeViewController
@@ -83,17 +82,16 @@ class TableViewControllerFavoritas: UITableViewController {
         }
     }
 
-    
+    //Carga el datapath
     func dataFileURL(archivo : String) -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent(archivo)
-        print(pathArchivo)
         return pathArchivo
     }
 
 
     func obtenerRecetasFavoritas() {
-        // antes de cargar datos limpio el arreglo listaIngredientes
+        // antes de cargar datos limpio el arreglo recetas favoritas y carga el arreglo de recetas
             listaRecetasFavoritas.removeAll()
             var listaRecetas = [Receta]()
         do {
@@ -104,6 +102,7 @@ class TableViewControllerFavoritas: UITableViewController {
             print("Error al cargar los datos del archivo de recetas")
         }
         
+        //Recorre el arreglo recetas para encontrar las que son recetas favoritas y las carga
         for recetaIndividual in listaRecetas {
             if recetaIndividual.esFav {
                 listaRecetasFavoritas.append(recetaIndividual)

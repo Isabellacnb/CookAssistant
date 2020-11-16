@@ -76,7 +76,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // MARK: - Métodos de Table View Data Source INGREDIENTES
-    
+    //Carga la lista de ingredientes de la receta
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == tableViewIngrediente) {
             return  listaIngredientes.count
@@ -103,34 +103,39 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //Se activa cuando le dan favorite, para quitar el favorite solamente le vuelven a picar
 
-
+    //Una vez que se carga el view controller de una receta debe revisar si se agrega a recetas previas
     override func viewDidAppear(_ animated: Bool) {
         obtenerRecetasPrevias()
         var repetida = false
+        //Recorre el arreglo para ver si la receta actual ya esta en el arreglo
         for recetaIndividual in listaRecetasPrevias {
             if (unaReceta.nombre == recetaIndividual.nombre){
-                
+                //Si se encuentra el valor de repetida es true
                 repetida = true
             }
             
         }
+        //Si no se repite se agrega a el arreglo de lista recetas previas
         if !repetida{
             listaRecetasPrevias.append(unaReceta)
+
+            //Si el arreglo de recetas previas es más de 10 se elimina el valor más viejo
+            if listaRecetasPrevias.count > 10 {
+                listaRecetasPrevias.remove(at: 0)
+            }
+            //Guarda la lista actualizada
             guardarRecetas()
         }
-        if listaRecetasPrevias.count > 10 {
-            listaRecetasPrevias.remove(at: 0)
-        }
-        guardarRecetas()
     }
     
+    //Obtiene el data path
     func dataFileURL(archivo : String) -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent(archivo)
         return pathArchivo
     }
     
-    
+    //Carga el arreglo de recetas previas
     func obtenerRecetasPrevias() {
         // antes de cargar datos limpio el arreglo listaIngredientes
             listaRecetasPrevias.removeAll()
@@ -144,6 +149,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    //Guardar las recetas previas
     @IBAction func guardarRecetas() {
         do {
             let dataRecetaPrevias = try PropertyListEncoder().encode(listaRecetasPrevias)

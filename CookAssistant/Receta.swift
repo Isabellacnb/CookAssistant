@@ -9,6 +9,7 @@
 import UIKit
 
 class Receta: NSObject, Codable {
+    //Declarar las variables
     var nombre : String
     var pasos : String
     var esFav : Bool
@@ -16,6 +17,7 @@ class Receta: NSObject, Codable {
     var ingredientes : [Ingrediente]
     var tiempo : String
     
+    //Inicializar las variables
     init (nombre : String, pasos : String, esFav : Bool, imagen : UIImage, ingredientes : [Ingrediente], tiempo : String){
         self.nombre = nombre
         self.pasos = pasos
@@ -25,6 +27,7 @@ class Receta: NSObject, Codable {
         self.tiempo = tiempo
     }
     
+    //Se agregan las funciones para hacer las clase codable
     enum CodingKeys: String, CodingKey{
         case nombre
         case pasos
