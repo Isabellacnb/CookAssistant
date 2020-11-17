@@ -46,8 +46,8 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
         listaIngredientes = []
         self.navigationController!.navigationBar.isHidden = false
         // Ingredientes
-        tfCantidad.text = "0"
-        stCantidad.value = 0
+        tfCantidad.text = "0.0"
+        stCantidad.value = 0.0
         
         // Tableview measurements
         btnMeasure.backgroundColor = UIColor.white
@@ -91,15 +91,15 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
     
     @IBAction func agregarIngrediente(_ sender: UIButton) {
         if (sender == addIngredient) {
-            if(tfIngrediente.text != "" && Int(tfCantidad.text!) != nil && Int(tfCantidad.text!)! > 0 && idMeasure > 0) {
-                let ingr = Ingrediente(nombre: tfIngrediente.text!, cantidad: Int(tfCantidad.text!)!, medida: idMeasure)
+            if(tfIngrediente.text != "" && Double(tfCantidad.text!) != nil && Double(tfCantidad.text!)! > 0 && idMeasure > 0) {
+                let ingr = Ingrediente(nombre: tfIngrediente.text!, cantidad: Double(Int(tfCantidad.text!)!), medida: idMeasure)
                 listaIngredientes.append(ingr)
                 tableViewIngrediente.reloadData()
                 
                 // Limpiar textfields
                 tfIngrediente.text = ""
-                tfCantidad.text = "0"
-                stCantidad.value = 0
+                tfCantidad.text = "0.0"
+                stCantidad.value = 0.0
                 btnMeasure.setTitle("----", for: UIControl.State.normal)
                 btnMeasure.setTitleColor(UIColor.black, for: UIControl.State.normal)
 
@@ -115,13 +115,13 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         
-        if(Int(tfCantidad.text!) != nil) {
-            tfCantidad.text = String(Int(stCantidad.value))
+        if(Double(tfCantidad.text!) != nil) {
+            tfCantidad.text = String(Double(stCantidad.value))
         }
     }
     
     @IBAction func cambioManualCantidad(_ sender: Any) {
-        if(Int(tfCantidad.text!) != nil) {
+        if(Double(tfCantidad.text!) != nil) {
             stCantidad.value = Double(tfCantidad.text!)!
         }
     }

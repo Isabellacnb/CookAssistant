@@ -19,6 +19,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var lbTime: UILabel!
     @IBOutlet weak var btnEdit: UIBarButtonItem!
     @IBOutlet weak var imgFavStar: UIImageView!
+    @IBOutlet weak var viewText: UIView!
     
     var time : String!
     var esFav : Bool!
@@ -57,6 +58,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         time = unaReceta.tiempo
         // Poner imagen a receta
         imgRecipe.image = unaReceta.imagen
+        imgRecipe.contentMode = .scaleAspectFit
         esFav = unaReceta.esFav
         if esFav {
             imgFavStar.image = UIImage(systemName: "star.fill")
@@ -70,8 +72,10 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
             self.navigationItem.leftBarButtonItem = nil
-            
         }
+        viewText.layer.borderWidth = 2
+        viewText.layer.borderColor = UIColor.black.cgColor
+        viewText.layer.cornerRadius = 4
         
     }
     

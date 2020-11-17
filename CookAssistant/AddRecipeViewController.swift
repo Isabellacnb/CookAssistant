@@ -71,8 +71,8 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)         // Do any additional setup after loading the view.
-        tfCantidad.text = "0"
-        stCantidad.value = 0
+        tfCantidad.text = "0.0"
+        stCantidad.value = 0.0
         btnSave.layer.cornerRadius = 5
         btnSave.layer.borderWidth = 1
         btnSave.layer.borderColor = UIColor.black.cgColor
@@ -166,15 +166,15 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func addIngredient(_ sender: Any) {
-        if(tfIngrediente.text != "" && Int(tfCantidad.text!) != nil && Int(tfCantidad.text!)! > 0 && idMeasure > 0) {
-            let ingr = Ingrediente(nombre: tfIngrediente.text!, cantidad: Int(tfCantidad.text!)!, medida: idMeasure)
+        if(tfIngrediente.text != "" && Double(tfCantidad.text!) != nil && Double(tfCantidad.text!)! > 0 && idMeasure > 0) {
+            let ingr = Ingrediente(nombre: tfIngrediente.text!, cantidad: Double(tfCantidad.text!)!, medida: idMeasure)
             listaIngredientes.append(ingr)
             tableViewIngrediente.reloadData()
             
             // Limpiar textfields
             tfIngrediente.text = ""
-            tfCantidad.text = "0"
-            stCantidad.value = 0
+            tfCantidad.text = "0.0"
+            stCantidad.value = 0.0
             btnSelectMeasure.setTitle("----", for: UIControl.State.normal)
             btnSelectMeasure.setTitleColor(UIColor.black, for: UIControl.State.normal)
         } else {
@@ -186,14 +186,14 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        if(Int(tfCantidad.text!) != nil) {
-            tfCantidad.text = String(Int(stCantidad.value))
+        if(Double(tfCantidad.text!) != nil) {
+            tfCantidad.text = String(Double(stCantidad.value))
         }
         
     }
     
     @IBAction func cambioManualCantidad(_ sender: Any) {
-        if(Int(tfCantidad.text!) != nil) {
+        if(Double(tfCantidad.text!) != nil) {
             stCantidad.value = Double(tfCantidad.text!)!
         }
         

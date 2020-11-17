@@ -389,6 +389,7 @@ SWIFT_CLASS("_TtC13CookAssistant14ViewController")
 @class UIBarButtonItem;
 @class UILabel;
 @class UIImageView;
+@class UIView;
 
 SWIFT_CLASS("_TtC13CookAssistant24ViewRecipeViewController")
 @interface ViewRecipeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
@@ -399,6 +400,7 @@ SWIFT_CLASS("_TtC13CookAssistant24ViewRecipeViewController")
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lbTime;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified btnEdit;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imgFavStar;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified viewText;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableViewIngrediente;
 - (void)viewDidLoad;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;

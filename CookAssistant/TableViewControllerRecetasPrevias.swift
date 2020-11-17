@@ -67,6 +67,7 @@ class TableViewControllerRecetasPrevias: UITableViewController {
 
         cell.lbNombreReceta.text = listaRecetasPrevias[indexPath.row].nombre
         cell.imgFotoReceta.image = listaRecetasPrevias[indexPath.row].imagen
+        cell.imgFotoReceta.contentMode = .scaleAspectFit
         cell.lbTime.text = listaRecetasPrevias[indexPath.row].tiempo + " min"
 
         return cell

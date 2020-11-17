@@ -64,6 +64,7 @@ class TableViewControllerFavoritas: UITableViewController {
 
         cell.lbNombreReceta.text = listaRecetasFavoritas[indexPath.row].nombre
         cell.imgFotoReceta.image = listaRecetasFavoritas[indexPath.row].imagen
+        cell.imgFotoReceta.contentMode = .scaleAspectFit
         cell.lbTime.text = listaRecetasFavoritas[indexPath.row].tiempo + " min"
 
         return cell
