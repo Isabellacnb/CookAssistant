@@ -6,6 +6,14 @@
          contextName = "TableViewControllerRecetas.tableView(_:cellForRowAt:):TableViewControllerRecetas.swift">
       </ContextState>
       <ContextState
+         contextName = "ViewController.agregarIngrediente(_:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tfCantidad.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TableViewControllerRecetas.obtenerIngredientes():TableViewControllerRecetas.swift">
       </ContextState>
       <ContextState

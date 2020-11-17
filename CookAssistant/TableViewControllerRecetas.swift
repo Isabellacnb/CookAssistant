@@ -55,17 +55,51 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
         tableView.reloadData()
     }
     
+    // Funcion que convierte todas las medidas a CUPS
+    func universalValue(medida: Int, cantidad: Double) -> Double {
+        // ["tsp", "tbsp", "cups", "gal", "units"]
+        switch medida {
+        // Tea spoon
+        case 1:
+            return cantidad / 48
+        // Tablespoon
+        case 2:
+            return cantidad / 16
+        // Cups
+        case 3:
+            return cantidad
+        // Gal
+        case 4:
+            return cantidad * 16
+        //Units
+        case 5:
+            return cantidad
+        default:
+            return -1
+        }
+    }
+    
     // Funcion aux para checar si el ingrediente disponible es suficiente para el enecesario
     func ingredienteValido(_ necesario: Ingrediente, _ disponible:Ingrediente) -> Bool {
-        print(necesario.nombre + " " + disponible.nombre)
-        if( necesario.nombre.caseInsensitiveCompare(disponible.nombre) == ComparisonResult.orderedSame &&
-            necesario.cantidad <= disponible.cantidad &&
-            necesario.medida == disponible.medida) {
-            return true
+        // Ambos ingredientes tienen el mismo nombre
+        if(necesario.nombre.caseInsensitiveCompare(disponible.nombre) == ComparisonResult.orderedSame) {
+            // Controlar los ingredientes que son por unidad (units)
+            if(necesario.medida == 5 && disponible.medida == 5 && necesario.cantidad <= disponible.cantidad) {
+                return true
+            } else if( (necesario.medida == 5 && disponible.medida != 5) ||
+                        (necesario.medida != 5 && disponible.medida == 5)) {
+                return false
+            }
+            
+            // Se convierten las cantidades a cups y se evalua si hay suficientes
+            if( universalValue(medida: necesario.medida, cantidad: necesario.cantidad) <= universalValue(medida: disponible.medida, cantidad: disponible.cantidad)) {
+                return true
+            }
         }
         return false;
     }
     
+    // Funcion que mapea los ingredientes a un dicionario
     func mapIngreList(lista: [Ingrediente]) -> [String : Ingrediente] {
         var map: [String : Ingrediente] = [:]
         

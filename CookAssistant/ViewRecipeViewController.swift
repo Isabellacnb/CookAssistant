@@ -28,7 +28,7 @@ class ViewRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     var edited = false
     var unaReceta : Receta!
     var canEdit = false
-    var arrayMeasures : NSMutableArray = ["tsp", "tbsp", "oz", "cups", "pints", "quarts", "gal"]
+    var arrayMeasures : NSMutableArray = ["tsp", "tbsp", "cups", "gal", "units"]
     
     @IBOutlet weak var tableViewIngrediente: UITableView!
     
