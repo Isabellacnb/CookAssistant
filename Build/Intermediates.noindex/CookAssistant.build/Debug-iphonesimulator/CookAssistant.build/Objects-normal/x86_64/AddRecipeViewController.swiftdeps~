@@ -242,8 +242,6 @@ depends-member:
 - !private ["SK", "row"]
 - !private ["SK", "subscript"]
 - !private ["SB", "init"]
-- !private ["Sz", ""]
-- !private ["Sz", "init"]
 - !private ["So7CALayerC", "borderColor"]
 - !private ["So7CALayerC", "borderWidth"]
 - !private ["So7CALayerC", "cornerRadius"]
@@ -283,7 +281,6 @@ depends-member:
 - ["s7CVarArgP", "EditingStyle"]
 - ["s7CVarArgP", "InfoKey"]
 - !private ["s7CVarArgP", "Ingrediente"]
-- !private ["s7CVarArgP", "Int"]
 - !private ["s7CVarArgP", "Receta"]
 - !private ["s7CVarArgP", "State"]
 - !private ["s7CVarArgP", "String"]
@@ -439,7 +436,6 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "EditingStyle"]
 - ["s28CustomDebugStringConvertibleP", "InfoKey"]
 - !private ["s28CustomDebugStringConvertibleP", "Ingrediente"]
-- !private ["s28CustomDebugStringConvertibleP", "Int"]
 - !private ["s28CustomDebugStringConvertibleP", "Receta"]
 - !private ["s28CustomDebugStringConvertibleP", "State"]
 - !private ["s28CustomDebugStringConvertibleP", "String"]
@@ -595,7 +591,6 @@ depends-member:
 - ["s23CustomStringConvertibleP", "EditingStyle"]
 - ["s23CustomStringConvertibleP", "InfoKey"]
 - !private ["s23CustomStringConvertibleP", "Ingrediente"]
-- !private ["s23CustomStringConvertibleP", "Int"]
 - !private ["s23CustomStringConvertibleP", "Receta"]
 - !private ["s23CustomStringConvertibleP", "State"]
 - !private ["s23CustomStringConvertibleP", "String"]
@@ -789,7 +784,6 @@ depends-member:
 - ["SQ", "EditingStyle"]
 - ["SQ", "InfoKey"]
 - !private ["SQ", "Ingrediente"]
-- !private ["SQ", "Int"]
 - !private ["SQ", "RawValue"]
 - !private ["SQ", "Receta"]
 - !private ["SQ", "State"]
@@ -968,7 +962,6 @@ depends-member:
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - ["s33ExpressibleByUnicodeScalarLiteralP", ""]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["s17FixedWidthIntegerP", "init"]
 - !private ["SF", ""]
 - !private ["SF", "init"]
 - !private ["SH", "=="]
@@ -977,7 +970,6 @@ depends-member:
 - ["SH", "EditingStyle"]
 - ["SH", "InfoKey"]
 - !private ["SH", "Ingrediente"]
-- !private ["SH", "Int"]
 - !private ["SH", "RawValue"]
 - !private ["SH", "Receta"]
 - !private ["SH", "State"]
@@ -1124,7 +1116,6 @@ depends-member:
 - !private ["13CookAssistant11IngredienteC", "init"]
 - !private ["13CookAssistant11IngredienteC", "medida"]
 - !private ["13CookAssistant11IngredienteC", "nombre"]
-- !private ["Si", "init"]
 - ["s25LosslessStringConvertibleP", ""]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "init"]
@@ -1820,7 +1811,6 @@ depends-member:
 - !private ["ST", "subscript"]
 - !private ["s10SetAlgebraP", ""]
 - !private ["s10SetAlgebraP", "normal"]
-- !private ["SZ", "init"]
 - !private ["s13SignedNumericP", ""]
 - !private ["s13SignedNumericP", "init"]
 - !private ["So33UIImagePickerControllerSourceTypeV", "photoLibrary"]
@@ -2443,7 +2433,6 @@ depends-member:
 - !private ["So31UIImagePickerControllerDelegateP", "CGRect"]
 - !private ["So31UIImagePickerControllerDelegateP", "Double"]
 - !private ["So31UIImagePickerControllerDelegateP", "Ingrediente"]
-- !private ["So31UIImagePickerControllerDelegateP", "Int"]
 - !private ["So31UIImagePickerControllerDelegateP", "Receta"]
 - !private ["So31UIImagePickerControllerDelegateP", "String"]
 - !private ["So31UIImagePickerControllerDelegateP", "UIAlertAction"]
@@ -2568,7 +2557,6 @@ depends-member:
 - !private ["So30UINavigationControllerDelegateP", "CGRect"]
 - !private ["So30UINavigationControllerDelegateP", "Double"]
 - !private ["So30UINavigationControllerDelegateP", "Ingrediente"]
-- !private ["So30UINavigationControllerDelegateP", "Int"]
 - !private ["So30UINavigationControllerDelegateP", "Receta"]
 - !private ["So30UINavigationControllerDelegateP", "String"]
 - !private ["So30UINavigationControllerDelegateP", "UIAlertAction"]
@@ -3066,7 +3054,6 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "CGRect"]
 - !private ["So20UIScrollViewDelegateP", "Double"]
 - !private ["So20UIScrollViewDelegateP", "Ingrediente"]
-- !private ["So20UIScrollViewDelegateP", "Int"]
 - !private ["So20UIScrollViewDelegateP", "Receta"]
 - !private ["So20UIScrollViewDelegateP", "String"]
 - !private ["So20UIScrollViewDelegateP", "UIAlertAction"]
@@ -3285,7 +3272,6 @@ depends-member:
 - !private ["So21UITableViewDataSourceP", "CGRect"]
 - !private ["So21UITableViewDataSourceP", "Double"]
 - !private ["So21UITableViewDataSourceP", "Ingrediente"]
-- !private ["So21UITableViewDataSourceP", "Int"]
 - !private ["So21UITableViewDataSourceP", "Receta"]
 - !private ["So21UITableViewDataSourceP", "String"]
 - !private ["So21UITableViewDataSourceP", "UIAlertAction"]
@@ -3371,7 +3357,6 @@ depends-member:
 - !private ["So19UITableViewDelegateP", "CGRect"]
 - !private ["So19UITableViewDelegateP", "Double"]
 - !private ["So19UITableViewDelegateP", "Ingrediente"]
-- !private ["So19UITableViewDelegateP", "Int"]
 - !private ["So19UITableViewDelegateP", "Receta"]
 - !private ["So19UITableViewDelegateP", "String"]
 - !private ["So19UITableViewDelegateP", "UIAlertAction"]
@@ -3912,7 +3897,6 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "EditingStyle"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "InfoKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Ingrediente"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Receta"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "State"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
@@ -4040,7 +4024,6 @@ depends-member:
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", "EditingStyle"]
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", "InfoKey"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Ingrediente"]
-- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Int"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Receta"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "State"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "String"]
@@ -4223,7 +4206,6 @@ depends-nominal:
 - !private "s10ArraySliceV"
 - "SK"
 - !private "SB"
-- !private "Sz"
 - !private "So7CALayerC"
 - "So15CALayerDelegateP"
 - !private "So13CAMediaTimingP"
@@ -4253,13 +4235,11 @@ depends-nominal:
 - "s32ExpressibleByStringInterpolationP"
 - "s26ExpressibleByStringLiteralP"
 - "s33ExpressibleByUnicodeScalarLiteralP"
-- !private "s17FixedWidthIntegerP"
 - !private "SF"
 - "SH"
 - !private "10Foundation9IndexPathV"
 - !private "So30UIImagePickerControllerInfoKeya"
 - !private "13CookAssistant11IngredienteC"
-- !private "Si"
 - "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "SM"
@@ -4288,7 +4268,6 @@ depends-nominal:
 - !private "s10SIMDScalarP"
 - "ST"
 - !private "s10SetAlgebraP"
-- !private "SZ"
 - !private "s13SignedNumericP"
 - !private "So33UIImagePickerControllerSourceTypeV"
 - !private "So14UIControlStateV"

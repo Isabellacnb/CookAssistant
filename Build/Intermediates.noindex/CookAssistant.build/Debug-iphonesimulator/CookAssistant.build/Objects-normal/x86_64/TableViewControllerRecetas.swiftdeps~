@@ -1012,9 +1012,11 @@ depends-member:
 - !private ["So8NSObjectP", "FileManager"]
 - ["So8NSObjectP", "IndexPath"]
 - ["So8NSObjectP", "Ingrediente"]
+- ["So8NSObjectP", "Int"]
 - !private ["So8NSObjectP", "PropertyListDecoder"]
 - !private ["So8NSObjectP", "PropertyListEncoder"]
 - ["So8NSObjectP", "Receta"]
+- ["So8NSObjectP", "String"]
 - !private ["So8NSObjectP", "SymbolConfiguration"]
 - !private ["So8NSObjectP", "UIImage"]
 - !private ["So8NSObjectP", "UIImageView"]
@@ -2371,7 +2373,7 @@ depends-member:
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "caseInsensitiveCompare"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "lowercased"]
 - !private ["s33_ExpressibleByBuiltinFloatLiteralP", "init"]
-- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "caseInsensitiveCompare"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "lowercased"]
@@ -2748,7 +2750,7 @@ depends-nominal:
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s33_ExpressibleByBuiltinFloatLiteralP"
-- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s26_ExpressibleByColorLiteralP"

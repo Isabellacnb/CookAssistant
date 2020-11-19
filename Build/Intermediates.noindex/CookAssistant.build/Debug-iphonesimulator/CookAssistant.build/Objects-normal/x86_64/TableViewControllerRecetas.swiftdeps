@@ -26,6 +26,7 @@ provides-dynamic-lookup:
 - "recetaModificada"
 - "selectedRow"
 - "tableView"
+- "universalValue"
 - "unwindModificar"
 - "viewDidAppear"
 - "viewDidLoad"
@@ -33,8 +34,10 @@ depends-top-level:
 - !private "!"
 - !private "!="
 - !private "&&"
+- !private "*"
 - !private "+"
 - !private "..<"
+- !private "/"
 - !private "<="
 - !private "=="
 - "AddRecipeViewController"
@@ -46,6 +49,7 @@ depends-top-level:
 - "CastingPrecedence"
 - !private "ComparisonResult"
 - !private "Data"
+- "Double"
 - !private "FileManager"
 - !private "FloatLiteralType"
 - "IndexPath"
@@ -67,7 +71,6 @@ depends-top-level:
 - "UITableViewController"
 - !private "UIView"
 - "URL"
-- !private "UnicodeScalarType"
 - "UserDefaults"
 - "ViewRecipeViewController"
 - !private "_ImageLiteralType"
@@ -87,6 +90,9 @@ depends-top-level:
 - !private "recetaModificada"
 - !private "selectedRow"
 - !private "tableView"
+- !private "universalValue"
+- !private "||"
+- !private "~="
 depends-member:
 - !private ["13CookAssistant23AddRecipeViewControllerC", "delegado"]
 - !private ["s18AdditiveArithmeticP", ""]
@@ -206,6 +212,7 @@ depends-member:
 - !private ["s7CVarArgP", "textLabel"]
 - !private ["s7CVarArgP", "titleView"]
 - !private ["s7CVarArgP", "unaReceta"]
+- !private ["s7CVarArgP", "universalValue"]
 - !private ["s7CVarArgP", "unwindModificar"]
 - !private ["s7CVarArgP", "urls"]
 - !private ["s7CVarArgP", "viewDidAppear"]
@@ -326,6 +333,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "textLabel"]
 - !private ["s28CustomDebugStringConvertibleP", "titleView"]
 - !private ["s28CustomDebugStringConvertibleP", "unaReceta"]
+- !private ["s28CustomDebugStringConvertibleP", "universalValue"]
 - !private ["s28CustomDebugStringConvertibleP", "unwindModificar"]
 - !private ["s28CustomDebugStringConvertibleP", "urls"]
 - !private ["s28CustomDebugStringConvertibleP", "viewDidAppear"]
@@ -424,6 +432,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "textLabel"]
 - !private ["s23CustomStringConvertibleP", "titleView"]
 - !private ["s23CustomStringConvertibleP", "unaReceta"]
+- !private ["s23CustomStringConvertibleP", "universalValue"]
 - !private ["s23CustomStringConvertibleP", "unwindModificar"]
 - !private ["s23CustomStringConvertibleP", "urls"]
 - !private ["s23CustomStringConvertibleP", "viewDidAppear"]
@@ -577,6 +586,7 @@ depends-member:
 - !private ["SQ", "textLabel"]
 - !private ["SQ", "titleView"]
 - !private ["SQ", "unaReceta"]
+- !private ["SQ", "universalValue"]
 - !private ["SQ", "unwindModificar"]
 - !private ["SQ", "urls"]
 - !private ["SQ", "userDomainMask"]
@@ -711,6 +721,7 @@ depends-member:
 - !private ["SH", "textLabel"]
 - !private ["SH", "titleView"]
 - !private ["SH", "unaReceta"]
+- !private ["SH", "universalValue"]
 - !private ["SH", "unwindModificar"]
 - !private ["SH", "urls"]
 - !private ["SH", "viewDidAppear"]
@@ -752,6 +763,7 @@ depends-member:
 - !private ["So8NSCodingP", "CGRect"]
 - !private ["So8NSCodingP", "ComparisonResult"]
 - !private ["So8NSCodingP", "Data"]
+- ["So8NSCodingP", "Double"]
 - ["So8NSCodingP", "EditingStyle"]
 - !private ["So8NSCodingP", "FileManager"]
 - ["So8NSCodingP", "IndexPath"]
@@ -823,6 +835,7 @@ depends-member:
 - !private ["So8NSCodingP", "textLabel"]
 - !private ["So8NSCodingP", "titleView"]
 - !private ["So8NSCodingP", "unaReceta"]
+- ["So8NSCodingP", "universalValue"]
 - ["So8NSCodingP", "unwindModificar"]
 - ["So8NSCodingP", "viewDidAppear"]
 - ["So8NSCodingP", "viewDidLoad"]
@@ -840,6 +853,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "CGRect"]
 - !private ["So26NSExtensionRequestHandlingP", "ComparisonResult"]
 - !private ["So26NSExtensionRequestHandlingP", "Data"]
+- ["So26NSExtensionRequestHandlingP", "Double"]
 - !private ["So26NSExtensionRequestHandlingP", "FileManager"]
 - ["So26NSExtensionRequestHandlingP", "IndexPath"]
 - ["So26NSExtensionRequestHandlingP", "Ingrediente"]
@@ -885,6 +899,7 @@ depends-member:
 - ["So26NSExtensionRequestHandlingP", "selectedRow"]
 - ["So26NSExtensionRequestHandlingP", "tableView"]
 - !private ["So26NSExtensionRequestHandlingP", "unaReceta"]
+- ["So26NSExtensionRequestHandlingP", "universalValue"]
 - ["So26NSExtensionRequestHandlingP", "unwindModificar"]
 - ["So26NSExtensionRequestHandlingP", "viewDidAppear"]
 - ["So26NSExtensionRequestHandlingP", "viewDidLoad"]
@@ -905,6 +920,7 @@ depends-member:
 - !private ["So8NSObjectC", "CGRect"]
 - !private ["So8NSObjectC", "ComparisonResult"]
 - !private ["So8NSObjectC", "Data"]
+- ["So8NSObjectC", "Double"]
 - ["So8NSObjectC", "EditingStyle"]
 - !private ["So8NSObjectC", "FileManager"]
 - ["So8NSObjectC", "IndexPath"]
@@ -999,6 +1015,7 @@ depends-member:
 - !private ["So8NSObjectC", "textLabel"]
 - !private ["So8NSObjectC", "titleView"]
 - !private ["So8NSObjectC", "unaReceta"]
+- ["So8NSObjectC", "universalValue"]
 - ["So8NSObjectC", "unwindModificar"]
 - !private ["So8NSObjectC", "urls"]
 - ["So8NSObjectC", "viewDidAppear"]
@@ -1008,6 +1025,7 @@ depends-member:
 - !private ["So8NSObjectP", "CGRect"]
 - !private ["So8NSObjectP", "ComparisonResult"]
 - !private ["So8NSObjectP", "Data"]
+- ["So8NSObjectP", "Double"]
 - ["So8NSObjectP", "EditingStyle"]
 - !private ["So8NSObjectP", "FileManager"]
 - ["So8NSObjectP", "IndexPath"]
@@ -1102,6 +1120,7 @@ depends-member:
 - !private ["So8NSObjectP", "textLabel"]
 - !private ["So8NSObjectP", "titleView"]
 - !private ["So8NSObjectP", "unaReceta"]
+- ["So8NSObjectP", "universalValue"]
 - ["So8NSObjectP", "unwindModificar"]
 - !private ["So8NSObjectP", "urls"]
 - ["So8NSObjectP", "viewDidAppear"]
@@ -1219,6 +1238,7 @@ depends-member:
 - !private ["13CookAssistant26TableViewControllerRecetasC", "CGRect"]
 - !private ["13CookAssistant26TableViewControllerRecetasC", "ComparisonResult"]
 - !private ["13CookAssistant26TableViewControllerRecetasC", "Data"]
+- ["13CookAssistant26TableViewControllerRecetasC", "Double"]
 - !private ["13CookAssistant26TableViewControllerRecetasC", "FileManager"]
 - ["13CookAssistant26TableViewControllerRecetasC", "IndexPath"]
 - ["13CookAssistant26TableViewControllerRecetasC", "Ingrediente"]
@@ -1262,6 +1282,7 @@ depends-member:
 - ["13CookAssistant26TableViewControllerRecetasC", "recetaModificada"]
 - ["13CookAssistant26TableViewControllerRecetasC", "selectedRow"]
 - ["13CookAssistant26TableViewControllerRecetasC", "tableView"]
+- ["13CookAssistant26TableViewControllerRecetasC", "universalValue"]
 - ["13CookAssistant26TableViewControllerRecetasC", "unwindModificar"]
 - ["13CookAssistant26TableViewControllerRecetasC", "viewDidAppear"]
 - ["13CookAssistant26TableViewControllerRecetasC", "viewDidLoad"]
@@ -1321,6 +1342,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "CGRect"]
 - !private ["So21UIAppearanceContainerP", "ComparisonResult"]
 - !private ["So21UIAppearanceContainerP", "Data"]
+- ["So21UIAppearanceContainerP", "Double"]
 - ["So21UIAppearanceContainerP", "EditingStyle"]
 - !private ["So21UIAppearanceContainerP", "FileManager"]
 - ["So21UIAppearanceContainerP", "IndexPath"]
@@ -1382,6 +1404,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "text"]
 - !private ["So21UIAppearanceContainerP", "textLabel"]
 - !private ["So21UIAppearanceContainerP", "unaReceta"]
+- ["So21UIAppearanceContainerP", "universalValue"]
 - ["So21UIAppearanceContainerP", "unwindModificar"]
 - ["So21UIAppearanceContainerP", "viewDidAppear"]
 - ["So21UIAppearanceContainerP", "viewDidLoad"]
@@ -1391,6 +1414,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "CGRect"]
 - !private ["So18UIContentContainerP", "ComparisonResult"]
 - !private ["So18UIContentContainerP", "Data"]
+- ["So18UIContentContainerP", "Double"]
 - !private ["So18UIContentContainerP", "FileManager"]
 - ["So18UIContentContainerP", "IndexPath"]
 - ["So18UIContentContainerP", "Ingrediente"]
@@ -1436,6 +1460,7 @@ depends-member:
 - ["So18UIContentContainerP", "selectedRow"]
 - ["So18UIContentContainerP", "tableView"]
 - !private ["So18UIContentContainerP", "unaReceta"]
+- ["So18UIContentContainerP", "universalValue"]
 - ["So18UIContentContainerP", "unwindModificar"]
 - ["So18UIContentContainerP", "viewDidAppear"]
 - ["So18UIContentContainerP", "viewDidLoad"]
@@ -1490,6 +1515,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "CGRect"]
 - !private ["So18UIFocusEnvironmentP", "ComparisonResult"]
 - !private ["So18UIFocusEnvironmentP", "Data"]
+- ["So18UIFocusEnvironmentP", "Double"]
 - ["So18UIFocusEnvironmentP", "EditingStyle"]
 - !private ["So18UIFocusEnvironmentP", "FileManager"]
 - ["So18UIFocusEnvironmentP", "IndexPath"]
@@ -1551,6 +1577,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "text"]
 - !private ["So18UIFocusEnvironmentP", "textLabel"]
 - !private ["So18UIFocusEnvironmentP", "unaReceta"]
+- ["So18UIFocusEnvironmentP", "universalValue"]
 - ["So18UIFocusEnvironmentP", "unwindModificar"]
 - ["So18UIFocusEnvironmentP", "viewDidAppear"]
 - ["So18UIFocusEnvironmentP", "viewDidLoad"]
@@ -1635,6 +1662,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "CGRect"]
 - !private ["So30UIPasteConfigurationSupportingP", "ComparisonResult"]
 - !private ["So30UIPasteConfigurationSupportingP", "Data"]
+- ["So30UIPasteConfigurationSupportingP", "Double"]
 - ["So30UIPasteConfigurationSupportingP", "EditingStyle"]
 - !private ["So30UIPasteConfigurationSupportingP", "FileManager"]
 - ["So30UIPasteConfigurationSupportingP", "IndexPath"]
@@ -1698,6 +1726,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "text"]
 - !private ["So30UIPasteConfigurationSupportingP", "textLabel"]
 - !private ["So30UIPasteConfigurationSupportingP", "unaReceta"]
+- ["So30UIPasteConfigurationSupportingP", "universalValue"]
 - ["So30UIPasteConfigurationSupportingP", "unwindModificar"]
 - ["So30UIPasteConfigurationSupportingP", "viewDidAppear"]
 - ["So30UIPasteConfigurationSupportingP", "viewDidLoad"]
@@ -1706,6 +1735,7 @@ depends-member:
 - !private ["So11UIResponderC", "CGRect"]
 - !private ["So11UIResponderC", "ComparisonResult"]
 - !private ["So11UIResponderC", "Data"]
+- ["So11UIResponderC", "Double"]
 - ["So11UIResponderC", "EditingStyle"]
 - !private ["So11UIResponderC", "FileManager"]
 - ["So11UIResponderC", "IndexPath"]
@@ -1769,6 +1799,7 @@ depends-member:
 - !private ["So11UIResponderC", "text"]
 - !private ["So11UIResponderC", "textLabel"]
 - !private ["So11UIResponderC", "unaReceta"]
+- ["So11UIResponderC", "universalValue"]
 - ["So11UIResponderC", "unwindModificar"]
 - ["So11UIResponderC", "viewDidAppear"]
 - ["So11UIResponderC", "viewDidLoad"]
@@ -1777,6 +1808,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "CGRect"]
 - !private ["So30UIResponderStandardEditActionsP", "ComparisonResult"]
 - !private ["So30UIResponderStandardEditActionsP", "Data"]
+- ["So30UIResponderStandardEditActionsP", "Double"]
 - ["So30UIResponderStandardEditActionsP", "EditingStyle"]
 - !private ["So30UIResponderStandardEditActionsP", "FileManager"]
 - ["So30UIResponderStandardEditActionsP", "IndexPath"]
@@ -1840,6 +1872,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "text"]
 - !private ["So30UIResponderStandardEditActionsP", "textLabel"]
 - !private ["So30UIResponderStandardEditActionsP", "unaReceta"]
+- ["So30UIResponderStandardEditActionsP", "universalValue"]
 - ["So30UIResponderStandardEditActionsP", "unwindModificar"]
 - ["So30UIResponderStandardEditActionsP", "viewDidAppear"]
 - ["So30UIResponderStandardEditActionsP", "viewDidLoad"]
@@ -1855,6 +1888,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "CGRect"]
 - !private ["So20UIScrollViewDelegateP", "ComparisonResult"]
 - !private ["So20UIScrollViewDelegateP", "Data"]
+- ["So20UIScrollViewDelegateP", "Double"]
 - !private ["So20UIScrollViewDelegateP", "FileManager"]
 - ["So20UIScrollViewDelegateP", "IndexPath"]
 - ["So20UIScrollViewDelegateP", "Ingrediente"]
@@ -1900,6 +1934,7 @@ depends-member:
 - ["So20UIScrollViewDelegateP", "selectedRow"]
 - ["So20UIScrollViewDelegateP", "tableView"]
 - !private ["So20UIScrollViewDelegateP", "unaReceta"]
+- ["So20UIScrollViewDelegateP", "universalValue"]
 - ["So20UIScrollViewDelegateP", "unwindModificar"]
 - ["So20UIScrollViewDelegateP", "viewDidAppear"]
 - ["So20UIScrollViewDelegateP", "viewDidLoad"]
@@ -1914,6 +1949,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "CGRect"]
 - !private ["So16UIStateRestoringP", "ComparisonResult"]
 - !private ["So16UIStateRestoringP", "Data"]
+- ["So16UIStateRestoringP", "Double"]
 - !private ["So16UIStateRestoringP", "FileManager"]
 - ["So16UIStateRestoringP", "IndexPath"]
 - ["So16UIStateRestoringP", "Ingrediente"]
@@ -1959,6 +1995,7 @@ depends-member:
 - ["So16UIStateRestoringP", "selectedRow"]
 - ["So16UIStateRestoringP", "tableView"]
 - !private ["So16UIStateRestoringP", "unaReceta"]
+- ["So16UIStateRestoringP", "universalValue"]
 - ["So16UIStateRestoringP", "unwindModificar"]
 - ["So16UIStateRestoringP", "viewDidAppear"]
 - ["So16UIStateRestoringP", "viewDidLoad"]
@@ -1976,6 +2013,7 @@ depends-member:
 - !private ["So21UITableViewControllerC", "CGRect"]
 - !private ["So21UITableViewControllerC", "ComparisonResult"]
 - !private ["So21UITableViewControllerC", "Data"]
+- ["So21UITableViewControllerC", "Double"]
 - !private ["So21UITableViewControllerC", "FileManager"]
 - ["So21UITableViewControllerC", "IndexPath"]
 - ["So21UITableViewControllerC", "Ingrediente"]
@@ -2018,6 +2056,7 @@ depends-member:
 - ["So21UITableViewControllerC", "recetaModificada"]
 - ["So21UITableViewControllerC", "selectedRow"]
 - ["So21UITableViewControllerC", "tableView"]
+- ["So21UITableViewControllerC", "universalValue"]
 - ["So21UITableViewControllerC", "unwindModificar"]
 - ["So21UITableViewControllerC", "viewDidAppear"]
 - ["So21UITableViewControllerC", "viewDidLoad"]
@@ -2026,6 +2065,7 @@ depends-member:
 - !private ["So21UITableViewDataSourceP", "CGRect"]
 - !private ["So21UITableViewDataSourceP", "ComparisonResult"]
 - !private ["So21UITableViewDataSourceP", "Data"]
+- ["So21UITableViewDataSourceP", "Double"]
 - !private ["So21UITableViewDataSourceP", "FileManager"]
 - ["So21UITableViewDataSourceP", "IndexPath"]
 - ["So21UITableViewDataSourceP", "Ingrediente"]
@@ -2071,6 +2111,7 @@ depends-member:
 - ["So21UITableViewDataSourceP", "selectedRow"]
 - ["So21UITableViewDataSourceP", "tableView"]
 - !private ["So21UITableViewDataSourceP", "unaReceta"]
+- ["So21UITableViewDataSourceP", "universalValue"]
 - ["So21UITableViewDataSourceP", "unwindModificar"]
 - ["So21UITableViewDataSourceP", "viewDidAppear"]
 - ["So21UITableViewDataSourceP", "viewDidLoad"]
@@ -2079,6 +2120,7 @@ depends-member:
 - !private ["So19UITableViewDelegateP", "CGRect"]
 - !private ["So19UITableViewDelegateP", "ComparisonResult"]
 - !private ["So19UITableViewDelegateP", "Data"]
+- ["So19UITableViewDelegateP", "Double"]
 - !private ["So19UITableViewDelegateP", "FileManager"]
 - ["So19UITableViewDelegateP", "IndexPath"]
 - ["So19UITableViewDelegateP", "Ingrediente"]
@@ -2124,6 +2166,7 @@ depends-member:
 - ["So19UITableViewDelegateP", "selectedRow"]
 - ["So19UITableViewDelegateP", "tableView"]
 - !private ["So19UITableViewDelegateP", "unaReceta"]
+- ["So19UITableViewDelegateP", "universalValue"]
 - ["So19UITableViewDelegateP", "unwindModificar"]
 - ["So19UITableViewDelegateP", "viewDidAppear"]
 - ["So19UITableViewDelegateP", "viewDidLoad"]
@@ -2132,6 +2175,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "CGRect"]
 - !private ["So18UITraitEnvironmentP", "ComparisonResult"]
 - !private ["So18UITraitEnvironmentP", "Data"]
+- ["So18UITraitEnvironmentP", "Double"]
 - ["So18UITraitEnvironmentP", "EditingStyle"]
 - !private ["So18UITraitEnvironmentP", "FileManager"]
 - ["So18UITraitEnvironmentP", "IndexPath"]
@@ -2193,6 +2237,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "text"]
 - !private ["So18UITraitEnvironmentP", "textLabel"]
 - !private ["So18UITraitEnvironmentP", "unaReceta"]
+- ["So18UITraitEnvironmentP", "universalValue"]
 - ["So18UITraitEnvironmentP", "unwindModificar"]
 - ["So18UITraitEnvironmentP", "viewDidAppear"]
 - ["So18UITraitEnvironmentP", "viewDidLoad"]
@@ -2201,6 +2246,7 @@ depends-member:
 - !private ["So23UIUserActivityRestoringP", "CGRect"]
 - !private ["So23UIUserActivityRestoringP", "ComparisonResult"]
 - !private ["So23UIUserActivityRestoringP", "Data"]
+- ["So23UIUserActivityRestoringP", "Double"]
 - ["So23UIUserActivityRestoringP", "EditingStyle"]
 - !private ["So23UIUserActivityRestoringP", "FileManager"]
 - ["So23UIUserActivityRestoringP", "IndexPath"]
@@ -2264,6 +2310,7 @@ depends-member:
 - !private ["So23UIUserActivityRestoringP", "text"]
 - !private ["So23UIUserActivityRestoringP", "textLabel"]
 - !private ["So23UIUserActivityRestoringP", "unaReceta"]
+- ["So23UIUserActivityRestoringP", "universalValue"]
 - ["So23UIUserActivityRestoringP", "unwindModificar"]
 - ["So23UIUserActivityRestoringP", "viewDidAppear"]
 - ["So23UIUserActivityRestoringP", "viewDidLoad"]
@@ -2290,6 +2337,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "CGRect"]
 - !private ["So16UIViewControllerC", "ComparisonResult"]
 - !private ["So16UIViewControllerC", "Data"]
+- ["So16UIViewControllerC", "Double"]
 - !private ["So16UIViewControllerC", "FileManager"]
 - ["So16UIViewControllerC", "IndexPath"]
 - ["So16UIViewControllerC", "Ingrediente"]
@@ -2335,6 +2383,7 @@ depends-member:
 - ["So16UIViewControllerC", "selectedRow"]
 - ["So16UIViewControllerC", "tableView"]
 - !private ["So16UIViewControllerC", "unaReceta"]
+- ["So16UIViewControllerC", "universalValue"]
 - ["So16UIViewControllerC", "unwindModificar"]
 - ["So16UIViewControllerC", "viewDidAppear"]
 - ["So16UIViewControllerC", "viewDidLoad"]
@@ -2469,6 +2518,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "textLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "titleView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "unaReceta"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "universalValue"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "unwindModificar"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "urls"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidAppear"]
@@ -2539,6 +2589,7 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "textLabel"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "titleView"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "unaReceta"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "universalValue"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "unwindModificar"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "urls"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "viewDidAppear"]
@@ -2614,6 +2665,7 @@ depends-member:
 - !private ["13CookAssistant20protocolAgregaRecetaP", "recetaModificada"]
 - !private ["13CookAssistant20protocolAgregaRecetaP", "selectedRow"]
 - !private ["13CookAssistant20protocolAgregaRecetaP", "tableView"]
+- !private ["13CookAssistant20protocolAgregaRecetaP", "universalValue"]
 - !private ["13CookAssistant20protocolAgregaRecetaP", "unwindModificar"]
 - !private ["13CookAssistant20protocolAgregaRecetaP", "viewDidAppear"]
 - !private ["13CookAssistant20protocolAgregaRecetaP", "viewDidLoad"]
@@ -2793,4 +2845,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "cb9864e0b502b76939ada02e04b469ee"
+interface-hash: "1351d94a5e5ed57f2b0b69df2012af87"

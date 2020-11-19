@@ -126,6 +126,7 @@ depends-member:
 - !private ["s30KeyedDecodingContainerProtocolP", "decode"]
 - !private ["s22KeyedEncodingContainerV", "encode"]
 - !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- ["So8NSCodingP", ""]
 - ["So8NSObjectC", "Double"]
 - ["So8NSObjectC", "Int"]
 - ["So8NSObjectC", "String"]
@@ -135,12 +136,16 @@ depends-member:
 - ["So8NSObjectC", "init"]
 - ["So8NSObjectC", "medida"]
 - ["So8NSObjectC", "nombre"]
+- ["So8NSObjectP", "Double"]
+- ["So8NSObjectP", "Int"]
+- ["So8NSObjectP", "String"]
 - ["So8NSObjectP", ""]
 - ["So8NSObjectP", "cantidad"]
 - ["So8NSObjectP", "encode"]
 - ["So8NSObjectP", "init"]
 - ["So8NSObjectP", "medida"]
 - ["So8NSObjectP", "nombre"]
+- ["So18UIFocusEnvironmentP", ""]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
@@ -172,8 +177,10 @@ depends-nominal:
 - !private "s30KeyedDecodingContainerProtocolP"
 - !private "s22KeyedEncodingContainerV"
 - !private "s30KeyedEncodingContainerProtocolP"
+- "So8NSCodingP"
 - "So8NSObjectC"
 - "So8NSObjectP"
+- "So18UIFocusEnvironmentP"
 - !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - "10Foundation27_KeyValueCodingAndObservingP"
@@ -208,4 +215,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "e2833e79cad00f1261ab2a47c4516de6"
+interface-hash: "786d519f1844e57a56240a5c98824b69"
