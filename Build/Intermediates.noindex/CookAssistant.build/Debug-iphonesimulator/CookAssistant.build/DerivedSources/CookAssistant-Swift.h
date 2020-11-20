@@ -335,6 +335,7 @@ SWIFT_CLASS("_TtC13CookAssistant26TableViewControllerRecetas")
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (IBAction)unwindModificarWithSegue:(UIStoryboardSegue * _Nonnull)segue;
 - (IBAction)guardarRecetas;
+- (IBAction)guardarRecetasPrevias;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
