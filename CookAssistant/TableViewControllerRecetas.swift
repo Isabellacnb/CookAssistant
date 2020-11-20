@@ -16,6 +16,7 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     var recetaModificada : Receta!
     var listaIngredientesDisp = [Ingrediente]()
     var listaRecetasDisp = [Receta]()
+    var listaRectasPrevias = [Receta]()
     
     @IBOutlet weak var filtro: UISegmentedControl!
     
@@ -157,6 +158,7 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
         }
     }
     
+    
     @IBAction func filtrarRecetas(_ sender: UISegmentedControl) {
         // Disponibles seleccionado
         if sender.selectedSegmentIndex == 0 {
@@ -225,6 +227,17 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
             }
             listaRecetasDisp.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            obtenerRecetasPrevias()
+            var count = 0
+            for recetaIndividual in listaRectasPrevias {
+                if (recetaBorrada.nombre == recetaIndividual.nombre){
+                    //Si se encuentra el valor de repetida es true
+                    listaRectasPrevias.remove(at: count)
+                    count += 1
+                    guardarRecetasPrevias()
+                }
+            }
+            
             guardarRecetas()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -324,16 +337,25 @@ class TableViewControllerRecetas: UITableViewController, protocolAgregaReceta {
     
     func obtenerRecetasPrevias() {
         // antes de cargar datos limpio el arreglo listaIngredientes
-            listaRecetas.removeAll()
+            listaRectasPrevias.removeAll()
         
         do {
             let data = try Data.init(contentsOf: dataFileURL(archivo: "RecetasPrevias.plist"))
-            listaRecetas = try PropertyListDecoder().decode([Receta].self, from: data)
+            listaRectasPrevias = try PropertyListDecoder().decode([Receta].self, from: data)
         }
         catch {
             print("Error al cargar los datos del archivo de recetas")
         }
     }
     
+    @IBAction func guardarRecetasPrevias() {
+        do {
+            let dataRecetaPrevias = try PropertyListEncoder().encode(listaRectasPrevias)
+            try dataRecetaPrevias.write(to: dataFileURL(archivo: "RecetasPrevias.plist"))
+        }
+        catch {
+            print("Error al guardar las recetas previas")
+        }
+    }
     
 }
