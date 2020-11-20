@@ -92,7 +92,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UITableVi
     @IBAction func agregarIngrediente(_ sender: UIButton) {
         if (sender == addIngredient) {
             if(tfIngrediente.text != "" && Double(tfCantidad.text!) != nil && Double(tfCantidad.text!)! > 0 && idMeasure > 0) {
-                let ingr = Ingrediente(nombre: tfIngrediente.text!, cantidad: Double(tfCantidad.text!)!, medida: idMeasure)
+                let ingr = Ingrediente(nombre: tfIngrediente.text!.trimmingCharacters(in: .whitespacesAndNewlines), cantidad: Double(tfCantidad.text!)!, medida: idMeasure)
                 listaIngredientes.append(ingr)
                 tableViewIngrediente.reloadData()
                 
